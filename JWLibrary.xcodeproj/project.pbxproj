@@ -7,20 +7,89 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E712892225A49E2200EF8140 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = E712892125A49E2200EF8140 /* script.js */; };
+		E73B94CD259F89940053F13A /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73B94CC259F89940053F13A /* DBManager.swift */; };
+		E7508B9225A0AFF100A1E16B /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9125A0AFF100A1E16B /* Structures.swift */; };
+		E7508B9525A0C73300A1E16B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E7508B9425A0C73300A1E16B /* .swiftlint.yml */; };
+		E7508B9725A0D4DF00A1E16B /* Stuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9625A0D4DF00A1E16B /* Stuff.swift */; };
+		E7508B9925A0DDB200A1E16B /* BibleChaptersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9825A0DDB200A1E16B /* BibleChaptersView.swift */; };
+		E7508B9B25A0DDE900A1E16B /* BibleBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9A25A0DDE900A1E16B /* BibleBooksView.swift */; };
+		E7508B9D25A1240A00A1E16B /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9C25A1240A00A1E16B /* ArticleView.swift */; };
+		E7508B9F25A12BB100A1E16B /* WebBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9E25A12BB100A1E16B /* WebBrowserView.swift */; };
 		E77503C3259F468600F1E263 /* JWLibraryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77503C2259F468600F1E263 /* JWLibraryApp.swift */; };
 		E77503C5259F468600F1E263 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77503C4259F468600F1E263 /* ContentView.swift */; };
 		E77503C7259F468600F1E263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E77503C6259F468600F1E263 /* Assets.xcassets */; };
 		E77503CA259F468600F1E263 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E77503C9259F468600F1E263 /* Preview Assets.xcassets */; };
+		E77503D8259F47D600F1E263 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77503D7259F47D600F1E263 /* SidebarView.swift */; };
+		E77FD4E825A1EF6100469C6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FD4E725A1EF6100469C6D /* Extensions.swift */; };
+		E77FD4EA25A2061800469C6D /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FD4E925A2061800469C6D /* UserDataManager.swift */; };
+		E77FD4EE25A208D400469C6D /* manifestDefault.json in Resources */ = {isa = PBXBuildFile; fileRef = E77FD4EC25A208D400469C6D /* manifestDefault.json */; };
+		E77FD4EF25A208D400469C6D /* user_data.db in Resources */ = {isa = PBXBuildFile; fileRef = E77FD4ED25A208D400469C6D /* user_data.db */; };
+		E77FD4F125A2093B00469C6D /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = E77FD4F025A2093B00469C6D /* style.css */; };
+		E78B7B37259F58E600F27D2E /* JWPubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B36259F58E600F27D2E /* JWPubManager.swift */; };
+		E78B7B3A259F592300F27D2E /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B39259F592300F27D2E /* FileDownloader.swift */; };
+		E78B7B43259F5C2800F27D2E /* BibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B42259F5C2800F27D2E /* BibleView.swift */; };
+		E78B7B75259F67DB00F27D2E /* Data+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B6D259F67DB00F27D2E /* Data+Serialization.swift */; };
+		E78B7B76259F67DB00F27D2E /* Data+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B6E259F67DB00F27D2E /* Data+Compression.swift */; };
+		E78B7B77259F67DB00F27D2E /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B6F259F67DB00F27D2E /* Archive.swift */; };
+		E78B7B78259F67DB00F27D2E /* FileManager+ZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B70259F67DB00F27D2E /* FileManager+ZIP.swift */; };
+		E78B7B79259F67DB00F27D2E /* Archive+Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B71259F67DB00F27D2E /* Archive+Reading.swift */; };
+		E78B7B7A259F67DB00F27D2E /* Archive+MemoryFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B72259F67DB00F27D2E /* Archive+MemoryFile.swift */; };
+		E78B7B7B259F67DB00F27D2E /* Archive+Writing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B73259F67DB00F27D2E /* Archive+Writing.swift */; };
+		E78B7B7C259F67DB00F27D2E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B74259F67DB00F27D2E /* Entry.swift */; };
+		E78B850E25A372B300C2A72A /* AppuntiDel2019.png in Resources */ = {isa = PBXBuildFile; fileRef = E78B850D25A372B300C2A72A /* AppuntiDel2019.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E73B94C8259F886D0053F13A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		E77503BF259F468600F1E263 /* JWLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JWLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E712892125A49E2200EF8140 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		E73B94CC259F89940053F13A /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		E7508B9125A0AFF100A1E16B /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
+		E7508B9425A0C73300A1E16B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		E7508B9625A0D4DF00A1E16B /* Stuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stuff.swift; sourceTree = "<group>"; };
+		E7508B9825A0DDB200A1E16B /* BibleChaptersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleChaptersView.swift; sourceTree = "<group>"; };
+		E7508B9A25A0DDE900A1E16B /* BibleBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleBooksView.swift; sourceTree = "<group>"; };
+		E7508B9C25A1240A00A1E16B /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
+		E7508B9E25A12BB100A1E16B /* WebBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserView.swift; sourceTree = "<group>"; };
+		E77503BF259F468600F1E263 /* JW Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JW Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77503C2259F468600F1E263 /* JWLibraryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWLibraryApp.swift; sourceTree = "<group>"; };
 		E77503C4259F468600F1E263 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E77503C6259F468600F1E263 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E77503C9259F468600F1E263 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E77503CB259F468600F1E263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E77503CC259F468600F1E263 /* JWLibrary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JWLibrary.entitlements; sourceTree = "<group>"; };
+		E77503D7259F47D600F1E263 /* SidebarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		E77FD4E725A1EF6100469C6D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E77FD4E925A2061800469C6D /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
+		E77FD4EC25A208D400469C6D /* manifestDefault.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = manifestDefault.json; sourceTree = "<group>"; };
+		E77FD4ED25A208D400469C6D /* user_data.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = user_data.db; sourceTree = "<group>"; };
+		E77FD4F025A2093B00469C6D /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		E78B7B36259F58E600F27D2E /* JWPubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWPubManager.swift; sourceTree = "<group>"; };
+		E78B7B39259F592300F27D2E /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
+		E78B7B42259F5C2800F27D2E /* BibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleView.swift; sourceTree = "<group>"; };
+		E78B7B6D259F67DB00F27D2E /* Data+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Serialization.swift"; sourceTree = "<group>"; };
+		E78B7B6E259F67DB00F27D2E /* Data+Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Compression.swift"; sourceTree = "<group>"; };
+		E78B7B6F259F67DB00F27D2E /* Archive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
+		E78B7B70259F67DB00F27D2E /* FileManager+ZIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+ZIP.swift"; sourceTree = "<group>"; };
+		E78B7B71259F67DB00F27D2E /* Archive+Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Archive+Reading.swift"; sourceTree = "<group>"; };
+		E78B7B72259F67DB00F27D2E /* Archive+MemoryFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Archive+MemoryFile.swift"; sourceTree = "<group>"; };
+		E78B7B73259F67DB00F27D2E /* Archive+Writing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Archive+Writing.swift"; sourceTree = "<group>"; };
+		E78B7B74259F67DB00F27D2E /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		E78B7B7F259F67ED00F27D2E /* shim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shim.h; sourceTree = "<group>"; };
+		E78B7B80259F67ED00F27D2E /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		E78B850D25A372B300C2A72A /* AppuntiDel2019.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppuntiDel2019.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +114,7 @@
 		E77503C0259F468600F1E263 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E77503BF259F468600F1E263 /* JWLibrary.app */,
+				E77503BF259F468600F1E263 /* JW Library.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,11 +122,19 @@
 		E77503C1259F468600F1E263 /* JWLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				E78B850B25A3723700C2A72A /* Robe */,
+				E77FD4EB25A208C600469C6D /* Files */,
+				E78B7B6B259F67C200F27D2E /* Zip */,
+				E78B7B3D259F5C0600F27D2E /* SubViews */,
+				E78B7B3C259F5BCE00F27D2E /* Utility */,
 				E77503C2259F468600F1E263 /* JWLibraryApp.swift */,
+				E77503D7259F47D600F1E263 /* SidebarView.swift */,
 				E77503C4259F468600F1E263 /* ContentView.swift */,
+				E7508B9E25A12BB100A1E16B /* WebBrowserView.swift */,
 				E77503C6259F468600F1E263 /* Assets.xcassets */,
 				E77503CB259F468600F1E263 /* Info.plist */,
 				E77503CC259F468600F1E263 /* JWLibrary.entitlements */,
+				E7508B9425A0C73300A1E16B /* .swiftlint.yml */,
 				E77503C8259F468600F1E263 /* Preview Content */,
 			);
 			path = JWLibrary;
@@ -71,6 +148,83 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E77FD4EB25A208C600469C6D /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				E77FD4EC25A208D400469C6D /* manifestDefault.json */,
+				E77FD4ED25A208D400469C6D /* user_data.db */,
+				E77FD4F025A2093B00469C6D /* style.css */,
+				E712892125A49E2200EF8140 /* script.js */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		E78B7B3C259F5BCE00F27D2E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				E78B7B39259F592300F27D2E /* FileDownloader.swift */,
+				E78B7B36259F58E600F27D2E /* JWPubManager.swift */,
+				E73B94CC259F89940053F13A /* DBManager.swift */,
+				E77FD4E925A2061800469C6D /* UserDataManager.swift */,
+				E7508B9125A0AFF100A1E16B /* Structures.swift */,
+				E7508B9625A0D4DF00A1E16B /* Stuff.swift */,
+				E77FD4E725A1EF6100469C6D /* Extensions.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		E78B7B3D259F5C0600F27D2E /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				E78B7B42259F5C2800F27D2E /* BibleView.swift */,
+				E7508B9A25A0DDE900A1E16B /* BibleBooksView.swift */,
+				E7508B9825A0DDB200A1E16B /* BibleChaptersView.swift */,
+				E7508B9C25A1240A00A1E16B /* ArticleView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		E78B7B6B259F67C200F27D2E /* Zip */ = {
+			isa = PBXGroup;
+			children = (
+				E78B7B7E259F67DF00F27D2E /* CZLib */,
+				E78B7B6C259F67CA00F27D2E /* ZIPFoundation */,
+			);
+			path = Zip;
+			sourceTree = "<group>";
+		};
+		E78B7B6C259F67CA00F27D2E /* ZIPFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				E78B7B6F259F67DB00F27D2E /* Archive.swift */,
+				E78B7B72259F67DB00F27D2E /* Archive+MemoryFile.swift */,
+				E78B7B71259F67DB00F27D2E /* Archive+Reading.swift */,
+				E78B7B73259F67DB00F27D2E /* Archive+Writing.swift */,
+				E78B7B6E259F67DB00F27D2E /* Data+Compression.swift */,
+				E78B7B6D259F67DB00F27D2E /* Data+Serialization.swift */,
+				E78B7B74259F67DB00F27D2E /* Entry.swift */,
+				E78B7B70259F67DB00F27D2E /* FileManager+ZIP.swift */,
+			);
+			path = ZIPFoundation;
+			sourceTree = "<group>";
+		};
+		E78B7B7E259F67DF00F27D2E /* CZLib */ = {
+			isa = PBXGroup;
+			children = (
+				E78B7B80259F67ED00F27D2E /* module.modulemap */,
+				E78B7B7F259F67ED00F27D2E /* shim.h */,
+			);
+			path = CZLib;
+			sourceTree = "<group>";
+		};
+		E78B850B25A3723700C2A72A /* Robe */ = {
+			isa = PBXGroup;
+			children = (
+				E78B850D25A372B300C2A72A /* AppuntiDel2019.png */,
+			);
+			path = Robe;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -81,6 +235,8 @@
 				E77503BB259F468600F1E263 /* Sources */,
 				E77503BC259F468600F1E263 /* Frameworks */,
 				E77503BD259F468600F1E263 /* Resources */,
+				E73B94C8259F886D0053F13A /* Embed Frameworks */,
+				E7508B9325A0C4B600A1E16B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -88,7 +244,7 @@
 			);
 			name = JWLibrary;
 			productName = JWLibrary;
-			productReference = E77503BF259F468600F1E263 /* JWLibrary.app */;
+			productReference = E77503BF259F468600F1E263 /* JW Library.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -128,6 +284,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E77FD4EE25A208D400469C6D /* manifestDefault.json in Resources */,
+				E712892225A49E2200EF8140 /* script.js in Resources */,
+				E77FD4F125A2093B00469C6D /* style.css in Resources */,
+				E7508B9525A0C73300A1E16B /* .swiftlint.yml in Resources */,
+				E77FD4EF25A208D400469C6D /* user_data.db in Resources */,
+				E78B850E25A372B300C2A72A /* AppuntiDel2019.png in Resources */,
 				E77503CA259F468600F1E263 /* Preview Assets.xcassets in Resources */,
 				E77503C7259F468600F1E263 /* Assets.xcassets in Resources */,
 			);
@@ -135,12 +297,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E7508B9325A0C4B600A1E16B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E77503BB259F468600F1E263 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7508B9225A0AFF100A1E16B /* Structures.swift in Sources */,
+				E78B7B7C259F67DB00F27D2E /* Entry.swift in Sources */,
+				E78B7B77259F67DB00F27D2E /* Archive.swift in Sources */,
 				E77503C5259F468600F1E263 /* ContentView.swift in Sources */,
+				E78B7B7B259F67DB00F27D2E /* Archive+Writing.swift in Sources */,
+				E78B7B43259F5C2800F27D2E /* BibleView.swift in Sources */,
+				E7508B9725A0D4DF00A1E16B /* Stuff.swift in Sources */,
+				E78B7B3A259F592300F27D2E /* FileDownloader.swift in Sources */,
+				E78B7B78259F67DB00F27D2E /* FileManager+ZIP.swift in Sources */,
+				E77FD4E825A1EF6100469C6D /* Extensions.swift in Sources */,
+				E78B7B76259F67DB00F27D2E /* Data+Compression.swift in Sources */,
+				E78B7B79259F67DB00F27D2E /* Archive+Reading.swift in Sources */,
+				E7508B9F25A12BB100A1E16B /* WebBrowserView.swift in Sources */,
+				E78B7B37259F58E600F27D2E /* JWPubManager.swift in Sources */,
+				E77FD4EA25A2061800469C6D /* UserDataManager.swift in Sources */,
+				E73B94CD259F89940053F13A /* DBManager.swift in Sources */,
+				E78B7B7A259F67DB00F27D2E /* Archive+MemoryFile.swift in Sources */,
+				E77503D8259F47D600F1E263 /* SidebarView.swift in Sources */,
+				E78B7B75259F67DB00F27D2E /* Data+Serialization.swift in Sources */,
+				E7508B9925A0DDB200A1E16B /* BibleChaptersView.swift in Sources */,
+				E7508B9B25A0DDE900A1E16B /* BibleBooksView.swift in Sources */,
+				E7508B9D25A1240A00A1E16B /* ArticleView.swift in Sources */,
 				E77503C3259F468600F1E263 /* JWLibraryApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +485,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.darioragusa.JWLibrary;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "JW Library";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -306,7 +509,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.darioragusa.JWLibrary;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "JW Library";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

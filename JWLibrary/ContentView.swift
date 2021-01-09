@@ -9,8 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
+        HStack {
+            Button(action: {
+                UserDataManager.restoreBackup()
+            }, label: {
+                Text("Importa backup")
+            })
+            Text("Hello, world!")
             .padding()
+            Button(action: {
+                UserDataManager.createBackup()
+            }, label: {
+                Text("Esporta backup")
+            })
+        }
     }
 }
 

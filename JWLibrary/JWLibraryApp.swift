@@ -11,7 +11,8 @@ import SwiftUI
 struct JWLibraryApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SidebarView()
         }
+        .windowToolbarStyle(UnifiedWindowToolbarStyle())
     }
 }

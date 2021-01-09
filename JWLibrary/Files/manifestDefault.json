@@ -1,0 +1,13 @@
+{
+   "name":"@BackupName",
+   "creationDate":"@BackupDate",
+   "version":1,
+   "type":0,
+   "userDataBackup":{
+      "lastModifiedDate":"@BackupTimeStamp",
+      "deviceName":"@DeviceName",
+      "databaseName":"user_data.db",
+      "hash":"@64CharHash",
+      "schemaVersion":8
+   }
+}

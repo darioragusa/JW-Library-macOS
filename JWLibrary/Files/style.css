@@ -1,0 +1,44 @@
+body {
+    font-family: -apple-system;
+}
+:root {
+  color-scheme: light dark;
+}
+a {
+    color: #2878bb;
+    text-decoration: none;
+    user-select: none;
+}
+a.vx, a.vp, a.vl {
+    font-weight: 600;
+}
+a.fn {
+    transform: translateX(-50%) translateX(-.5ex) translateY(-50%);
+}
+a.b {
+    font-size: 0.7em;
+}
+p.sb {
+    text-indent: 1.5em;
+}
+.cl {
+    font-size: 2em;
+}
+.highlightingcolor1 {
+    background-color: #ffeb3b;
+}
+.highlightingcolor2 {
+    background-color: #9ef953;
+}
+.highlightingcolor3 {
+    background-color: #29b6f6;
+}
+.highlightingcolor4 {
+    background-color: #af85ff;
+}
+.highlightingcolor5 {
+    background-color: #ffa1c8;
+}
+.highlightingcolor6 {
+    background-color: #ffb976;
+}

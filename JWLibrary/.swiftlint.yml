@@ -1,0 +1,11 @@
+# rule identifiers turned on by default to exclude from running
+disabled_rules:
+   - identifier_name
+   - line_length
+   - cyclomatic_complexity
+   - large_tuple
+   - function_parameter_count
+   - syntactic_sugar
+   - type_body_length
+   - function_body_length
+   - file_length
