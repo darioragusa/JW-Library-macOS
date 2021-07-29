@@ -12,12 +12,12 @@ import AppKit
 // L'identifier (almeno nella Bibbia) sarebbe il versetto
 
 class UserDataManager {
-    static let userDataPath = FileDownloader.getDocumentsDirectory().appendingPathComponent("userData")
-    static let dbPath = FileDownloader.getDocumentsDirectory().appendingPathComponent("userData/user_data.db")
-    static let dbPathShm = FileDownloader.getDocumentsDirectory().appendingPathComponent("userData/user_data.db-shm")
-    static let dbPathWal = FileDownloader.getDocumentsDirectory().appendingPathComponent("userData/user_data.db-wal")
-    static let jsonPath = FileDownloader.getDocumentsDirectory().appendingPathComponent("userData/manifest.json")
-    static let jsonDefPath = FileDownloader.getDocumentsDirectory().appendingPathComponent("userData/manifestDefault.json")
+    static let userDataPath = FileManager.getDocumentsDirectory().appendingPathComponent("userData")
+    static let dbPath = FileManager.getDocumentsDirectory().appendingPathComponent("userData/user_data.db")
+    static let dbPathShm = FileManager.getDocumentsDirectory().appendingPathComponent("userData/user_data.db-shm")
+    static let dbPathWal = FileManager.getDocumentsDirectory().appendingPathComponent("userData/user_data.db-wal")
+    static let jsonPath = FileManager.getDocumentsDirectory().appendingPathComponent("userData/manifest.json")
+    static let jsonDefPath = FileManager.getDocumentsDirectory().appendingPathComponent("userData/manifestDefault.json")
 
     // MARK: Highlight
     static func addHighlight(color: Int, identifier: Int, startToken: Int, endToken: Int, pubb: String, book: Int, chapter: Int, lang: Int = 4) {

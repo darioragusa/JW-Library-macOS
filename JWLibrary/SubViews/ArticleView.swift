@@ -11,9 +11,9 @@ var highlightColors: [Color] = [
     Stuff.hexColor(hex: 0xffeb3b),
     Stuff.hexColor(hex: 0x9ef953),
     Stuff.hexColor(hex: 0x29b6f6),
-    Stuff.hexColor(hex: 0xaf85ff),
     Stuff.hexColor(hex: 0xffa1c8),
-    Stuff.hexColor(hex: 0xffb976)
+    Stuff.hexColor(hex: 0xffb976),
+    Stuff.hexColor(hex: 0xaf85ff)
 ]
 
 struct ArticleView: View {

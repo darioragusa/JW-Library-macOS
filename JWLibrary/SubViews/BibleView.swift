@@ -10,7 +10,7 @@ let bibleURL = URL(string: "https://download-a.akamaihd.net/files/media_publicat
 
 struct BibleView: View {
     @State var downloadProgress = "Scarico struttura..."
-    @State var bibleDownloaded = FileDownloader.fileExist(url: bibleURL) && FileDownloader.articleExist(path: "nwt_I/66/22.html")
+    @State var bibleDownloaded = false
     @State var bibleBooks: [BibleBook] = []
     @State var bibleBookIndex: Int = -1
     @State var chapter = 0
@@ -25,36 +25,37 @@ struct BibleView: View {
                     ArticleView(pubb: "nwt_I", prevText: bibleBooks[bibleBookIndex].shortName, geometryReader: geometryReader, book: bibleBookIndex + 1, chapter: $chapter)
                 } else {
                     Text(downloadProgress)
+                        .padding()
                 }
             }
         }
         .onAppear(perform: {
-            if !bibleDownloaded {
-                if !FileDownloader.fileExist(url: bibleURL) {
-                    FileDownloader.loadFileAsync(url: bibleURL, completion: { _, _ in
-                        downloadText()
-                    })
-                }
-                bibleBooks = DBManager.getBibleBooks()
-                if FileDownloader.fileExist(url: bibleURL) && !FileDownloader.articleExist(path: "nwt_I/66/22.html") {
-                    downloadText()
-                }
+            if !FileManager.fileExist(url: bibleURL) {
+                FileDownloader.loadFileAsync(url: bibleURL, completion: { _, _ in
+                    bibleBooks = DBManager.getBibleBooks()
+                    downloadText("Scarico")
+                })
             } else {
                 bibleBooks = DBManager.getBibleBooks()
+                downloadText("Controllo")
             }
         })
     }
 
-    func downloadText() {
-        downloadProgress = "Scarico testo..."
-        let group = DispatchGroup()
-        group.enter()
-        FileDownloader.downloadBible(bibleBooks: bibleBooks) { _ in
-            group.leave()
-        }
-        group.notify(queue: .main) {
+    func downloadText(_ op: String) {
+        downloadProgress = op + " testo..."
+        DispatchQueue.background(background: {
+            for book in bibleBooks {
+                for chapter in 1...book.chapters {
+                    let destinationUrl = FileManager.getDocumentsDirectory().appendingPathComponent("nwt_I/\(book.ID)")
+                    try? FileManager().createDirectory(at: destinationUrl, withIntermediateDirectories: true, attributes: nil)
+                    FileDownloader.downloadArticle(url: URL(string: "https://wol.jw.org/it/wol/b/r6/lp-i/nwtsty/\(book.ID)/\(chapter)#study=discover")!, path: "nwt_I/\(book.ID)/\(chapter).html")
+                    downloadProgress = op + " nwt_I/\(book.ID)/\(chapter)\n" + downloadProgress
+                }
+            }
+        }, completion:{
             bibleDownloaded = true
-        }
+        })
     }
 }
 

@@ -40,11 +40,11 @@ public struct WebBrowserView: NSViewRepresentable {
     }
 
     public mutating func load() {
-        let fileDir = FileDownloader.getDocumentsDirectory().appendingPathComponent("\(pubb)/\(book)/\(chapter).html")
+        let fileDir = FileManager.getDocumentsDirectory().appendingPathComponent("\(pubb)/\(book)/\(chapter).html")
         let article = (try? String(contentsOf: fileDir, encoding: .utf8)) ?? ""
         let meta = "<meta charset='UTF-8'>"
-        let style = (try? String(contentsOf: FileDownloader.getDocumentsDirectory().appendingPathComponent("style.css"), encoding: .utf8)) ?? ""
-        let script = (try? String(contentsOf: FileDownloader.getDocumentsDirectory().appendingPathComponent("script.js"), encoding: .utf8)) ?? ""
+        let style = (try? String(contentsOf: FileManager.getDocumentsDirectory().appendingPathComponent("style.css"), encoding: .utf8)) ?? ""
+        let script = (try? String(contentsOf: FileManager.getDocumentsDirectory().appendingPathComponent("script.js"), encoding: .utf8)) ?? ""
         let page = "<html><head>" + meta + "<style>" + style + "</style></head><body>" + article + "</body><script>" + script + "</script></html>"
         webView.loadHTMLString(page, baseURL: nil)
     }

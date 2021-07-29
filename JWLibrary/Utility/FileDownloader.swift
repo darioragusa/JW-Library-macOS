@@ -66,7 +66,7 @@ class FileDownloader {
 
     static func downloadArticle(url: URL, path: String) {
         do {
-            if articleExist(path: path) {
+            if FileManager.articleExist(path: path) {
                 print("Skipping \(path)")
                 return
             } else {
@@ -76,7 +76,7 @@ class FileDownloader {
             var article = HTMLString.components(separatedBy: "<div class=\"scalableui\">").last
             article = article?.components(separatedBy: "<!-- Root element of lightbox -->").first
             do {
-                let destinationUrl = getDocumentsDirectory().appendingPathComponent(path)
+                let destinationUrl = FileManager.getDocumentsDirectory().appendingPathComponent(path)
                 try article!.write(toFile: destinationUrl.path, atomically: true, encoding: .utf8)
             } catch {
                 print("Error", error)
@@ -87,31 +87,17 @@ class FileDownloader {
         }
     }
 
-    static func articleExist(path: String) -> Bool {
-        let destinationUrl = getDocumentsDirectory().appendingPathComponent(path)
-        return FileManager().fileExists(atPath: destinationUrl.path)
-    }
-
-    static func fileExist(url: URL) -> Bool {
-        let destinationUrl = getDocumentsDirectory().appendingPathComponent(url.lastPathComponent)
-        return FileManager().fileExists(atPath: destinationUrl.path.replacingOccurrences(of: ".jwpub", with: ""))
-    }
-
-    static func downloadBible(bibleBooks: [BibleBook], completion: (_ success: Bool) -> Void) {
+    /*static func downloadBible(_ bibleBooks: [BibleBook], _ downloadProgress: inout String, completion: (_ success: Bool) -> Void) {
         for book in bibleBooks {
             for chapter in 1...book.chapters {
-                let destinationUrl = getDocumentsDirectory().appendingPathComponent("nwt_I/\(book.ID)")
+                let destinationUrl = FileManager.getDocumentsDirectory().appendingPathComponent("nwt_I/\(book.ID)")
                 try? FileManager().createDirectory(at: destinationUrl, withIntermediateDirectories: true, attributes: nil)
                 downloadArticle(url: URL(string: "https://wol.jw.org/it/wol/b/r6/lp-i/nwtsty/\(book.ID)/\(chapter)#study=discover")!, path: "nwt_I/\(book.ID)/\(chapter).html")
+                downloadProgress += "\nnwt_I/\(book.ID)/\(chapter)"
             }
         }
         completion(true)
-    }
-
-    static func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
+    }*/
 }
 
 /*

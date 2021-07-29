@@ -41,17 +41,17 @@ class Stuff {
 
     static func addBaseFiles() {
         let files = [
-            FileDownloader.getDocumentsDirectory().appendingPathComponent("style.css"),
-            FileDownloader.getDocumentsDirectory().appendingPathComponent("script.js"),
-            FileDownloader.getDocumentsDirectory().appendingPathComponent("userData/user_data.db"),
-            FileDownloader.getDocumentsDirectory().appendingPathComponent("userData/manifestDefault.json")
+            FileManager.getDocumentsDirectory().appendingPathComponent("style.css"),
+            FileManager.getDocumentsDirectory().appendingPathComponent("script.js"),
+            FileManager.getDocumentsDirectory().appendingPathComponent("userData/user_data.db"),
+            FileManager.getDocumentsDirectory().appendingPathComponent("userData/manifestDefault.json")
         ]
-        let userDataFolder = FileDownloader.getDocumentsDirectory().appendingPathComponent("userData")
+        let userDataFolder = FileManager.getDocumentsDirectory().appendingPathComponent("userData")
         try? FileManager().createDirectory(at: userDataFolder, withIntermediateDirectories: true, attributes: nil)
         try? FileManager().removeItem(at: files[0])
         try? FileManager().removeItem(at: files[1])
         for file in files {
-            if !FileDownloader.fileExist(url: file) {
+            if !FileManager.fileExist(url: file) {
                 try? FileManager().copyfileToUserDocumentDirectory(destPath: file)
             }
         }
@@ -77,6 +77,16 @@ struct BibleButtonStyle: ButtonStyle {
 }
 
 struct EditButtonStyle: ButtonStyle {
+    let color: Color
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .foregroundColor(Color.white)
+            .background(color)
+            .cornerRadius(6.0)
+    }
+}
+
+struct TransparentButtonStyle: ButtonStyle {
     let color: Color
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label

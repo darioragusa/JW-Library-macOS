@@ -41,4 +41,48 @@ class JWPubManager {
             print("Error")
         }
     }
+
+    /*
+     Adesso viene la parte bella: JW Library su Windows ha un catalogo
+     con tutte le pubblicazioni ed io non ho la minima idea di come
+     recuperarlo (potrei fare copia ed incolla ma non saprei come
+     tenerlo aggiornato). Quindi adesso presumo venga la parte bella
+     dove mi invento il modo più contorto per farmene uno...
+     */
+    static func lookForPubb() -> [(Int, [Int])] {
+        let last = getLastPubb()
+        let year = last.0
+        let month = last.1
+        let pubb = "w"
+        var result: [(Int, [Int])] = []
+        for pubbYear in 2010...(year) {
+            var array: [Int] = []
+            for pubbMonth in 1...12 where (pubbYear * 100) + pubbMonth <= (year * 100 + month) {
+                array.append(pubbMonth)
+                print("\(pubb)_I_\(pubbYear)\(pubbMonth.leadingZero())")
+            }
+            result.append((pubbYear, array))
+        }
+        return result.reversed()
+    }
+
+    static func getLastPubb() -> (Int, Int) {
+        var year: Int
+        var month: Int
+        let url = URL(string: "https://www.jw.org/it/biblioteca-digitale/riviste/?contentLanguageFilter=it&pubFilter=w&yearFilter=")!
+        do {
+            let HTMLString = try String(contentsOf: url, encoding: .utf8)
+            let var1 = HTMLString.components(separatedBy: "<div class=\"publicationDesc\">")[1]
+            let var2 = var1.components(separatedBy: "</a>")[0]
+            let var3 = var2.components(separatedBy: ">").last
+            let var4 = var3?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let splitted = var4!.components(separatedBy: " ")
+            year = Int(splitted[1])!
+            month = splitted[0].monthN()
+        } catch {
+            year = Calendar.current.component(.year, from: Date())
+            month = Calendar.current.component(.month, from: Date())
+        }
+        return (year, month)
+    }
 }
