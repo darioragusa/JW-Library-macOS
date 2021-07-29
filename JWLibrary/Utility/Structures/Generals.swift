@@ -1,5 +1,5 @@
 //
-//  Structures.swift
+//  Generals.swift
 //  JWLibrary
 //
 //  Created by Dario Ragusa on 02/01/21.

@@ -1,5 +1,5 @@
 //
-//  Downloader.swift
+//  FileDownloader.swift
 //  JWLibrary
 //
 //  Created by Dario Ragusa on 01/01/21.

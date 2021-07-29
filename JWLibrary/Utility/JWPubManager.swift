@@ -46,7 +46,7 @@ class JWPubManager {
      Adesso viene la parte bella: JW Library su Windows ha un catalogo
      con tutte le pubblicazioni ed io non ho la minima idea di come
      recuperarlo (potrei fare copia ed incolla ma non saprei come
-     tenerlo aggiornato). Quindi adesso presumo venga la parte bella
+     tenerlo aggiornato). Quindi adesso presumo venga il momento
      dove mi invento il modo più contorto per farmene uno...
      */
     static func lookForPubb() -> [(Int, [Int])] {

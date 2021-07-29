@@ -79,7 +79,7 @@ public struct WebBrowserView: NSViewRepresentable {
 
         public func webView(_ webView: WKWebView, didFinish: WKNavigation!) {
             webView.evaluateJavaScript("document.querySelector('header').remove()") { (result, error) in print(result ?? "", error ?? "") }
-            UserDataManager.addLocation(pubb: pubb, book: book, chapter: chapter)
+            LocationManager.addLocation(pubb: pubb, book: book, chapter: chapter)
             restoreHighlight()
         }
 
@@ -101,7 +101,7 @@ public struct WebBrowserView: NSViewRepresentable {
         public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
             let body = message.body
             if let dict = body as? Dictionary<String, Int> {
-                UserDataManager.addHighlight(color: dict["color"]!,
+                HighlightManager.addHighlight(color: dict["color"]!,
                                              identifier: dict["paragraph"]!,
                                              startToken: dict["startIndex"]!,
                                              endToken: dict["endIndex"]!,
@@ -123,7 +123,7 @@ public struct WebBrowserView: NSViewRepresentable {
                 }
             """) { (_, _) in
                 print("Removed all! ✅")
-                for highlight: Highlight in UserDataManager.getHighlight(pubb: self.pubb, book: self.book, chapter: self.chapter) {
+                for highlight: Highlight in HighlightManager.getHighlight(pubb: self.pubb, book: self.book, chapter: self.chapter) {
                     print("Adding highlight \(highlight.userMark.ID)...")
                     self.parent.webView.evaluateJavaScript("""
                         clearSelection();

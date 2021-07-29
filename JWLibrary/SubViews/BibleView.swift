@@ -53,7 +53,7 @@ struct BibleView: View {
                     downloadProgress = op + " nwt_I/\(book.ID)/\(chapter)\n" + downloadProgress
                 }
             }
-        }, completion:{
+        }, completion: {
             bibleDownloaded = true
         })
     }

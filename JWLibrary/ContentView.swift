@@ -11,14 +11,14 @@ struct ContentView: View {
     var body: some View {
         HStack {
             Button(action: {
-                UserDataManager.restoreBackup()
+                BackupManager.restoreBackup()
             }, label: {
                 Text("Importa backup")
             })
             Text("Hello, world!")
             .padding()
             Button(action: {
-                UserDataManager.createBackup()
+                BackupManager.createBackup()
             }, label: {
                 Text("Esporta backup")
             })

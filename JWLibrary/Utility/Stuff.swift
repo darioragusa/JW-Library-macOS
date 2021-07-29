@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Stuff.swift
 //  JWLibrary
 //
 //  Created by Dario Ragusa on 02/01/21.
@@ -63,35 +63,5 @@ class Stuff {
         } else {
             return "Mac"
         }
-    }
-}
-
-struct BibleButtonStyle: ButtonStyle {
-    let color: Color
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .foregroundColor(Color.white)
-            .background(configuration.isPressed ? color.lighter(by: 30): color)
-            .cornerRadius(6.0)
-    }
-}
-
-struct EditButtonStyle: ButtonStyle {
-    let color: Color
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .foregroundColor(Color.white)
-            .background(color)
-            .cornerRadius(6.0)
-    }
-}
-
-struct TransparentButtonStyle: ButtonStyle {
-    let color: Color
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .foregroundColor(Color.white)
-            .background(color)
-            .cornerRadius(6.0)
     }
 }
