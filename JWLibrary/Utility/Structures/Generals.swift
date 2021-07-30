@@ -36,3 +36,9 @@ struct Existing {
     var endToken: Int
     var colorIndex: Int
 }
+
+struct Note {
+    var ID: Int
+    var title: String
+    var content: String
+}

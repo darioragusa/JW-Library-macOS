@@ -27,7 +27,7 @@ struct SidebarView: View {
                     NavigationLink(destination: ContentView().navigationTitle("Adunanze")) {
                         Label("Adunanze", systemImage: "calendar")
                     }
-                    NavigationLink(destination: ContentView().navigationTitle("Ricerche")) {
+                    NavigationLink(destination: PersonalStudyView().navigationTitle("Ricerche")) {
                         Label("Ricerche", systemImage: "bookmark.fill")
                     }
                 }

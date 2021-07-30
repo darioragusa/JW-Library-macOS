@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E712892225A49E2200EF8140 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = E712892125A49E2200EF8140 /* script.js */; };
 		E72CA45726B29B3B008E5E32 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72CA45626B29B3B008E5E32 /* Paths.swift */; };
+		E72CA45926B29FA9008E5E32 /* PersonalStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72CA45826B29FA9008E5E32 /* PersonalStudyView.swift */; };
+		E72CA45B26B2A1B4008E5E32 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72CA45A26B2A1B4008E5E32 /* NoteManager.swift */; };
 		E73B94CD259F89940053F13A /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73B94CC259F89940053F13A /* DBManager.swift */; };
 		E7508B9225A0AFF100A1E16B /* Generals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9125A0AFF100A1E16B /* Generals.swift */; };
 		E7508B9525A0C73300A1E16B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E7508B9425A0C73300A1E16B /* .swiftlint.yml */; };
@@ -67,6 +69,8 @@
 /* Begin PBXFileReference section */
 		E712892125A49E2200EF8140 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 		E72CA45626B29B3B008E5E32 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
+		E72CA45826B29FA9008E5E32 /* PersonalStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalStudyView.swift; sourceTree = "<group>"; };
+		E72CA45A26B2A1B4008E5E32 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
 		E73B94CC259F89940053F13A /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		E7508B9125A0AFF100A1E16B /* Generals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generals.swift; sourceTree = "<group>"; };
 		E7508B9425A0C73300A1E16B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				E776A54226B2956800F257EB /* BlockRangeManager.swift */,
 				E776A54426B295F900F257EB /* UserMarkManager.swift */,
 				E776A54626B2965E00F257EB /* BackupManager.swift */,
+				E72CA45A26B2A1B4008E5E32 /* NoteManager.swift */,
 			);
 			path = UserData;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 				E7508B9825A0DDB200A1E16B /* BibleChaptersView.swift */,
 				E7508B9C25A1240A00A1E16B /* ArticleView.swift */,
 				E7801E2425AF444C005C86C8 /* PubbView.swift */,
+				E72CA45826B29FA9008E5E32 /* PersonalStudyView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -398,7 +404,9 @@
 				E78B7B78259F67DB00F27D2E /* FileManager+ZIP.swift in Sources */,
 				E78B7B76259F67DB00F27D2E /* Data+Compression.swift in Sources */,
 				E78B7B79259F67DB00F27D2E /* Archive+Reading.swift in Sources */,
+				E72CA45926B29FA9008E5E32 /* PersonalStudyView.swift in Sources */,
 				E7508B9F25A12BB100A1E16B /* WebBrowserView.swift in Sources */,
+				E72CA45B26B2A1B4008E5E32 /* NoteManager.swift in Sources */,
 				E72CA45726B29B3B008E5E32 /* Paths.swift in Sources */,
 				E776A53426B292DC00F257EB /* Ext_String.swift in Sources */,
 				E78B7B37259F58E600F27D2E /* JWPubManager.swift in Sources */,
