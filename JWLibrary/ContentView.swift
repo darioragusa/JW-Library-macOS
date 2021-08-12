@@ -22,6 +22,11 @@ struct ContentView: View {
             }, label: {
                 Text("Esporta backup")
             })
+            /*Button(action: {
+                JWPubExtractor.testExtraction()
+            }, label: {
+                Text("Test JWPub")
+            })*/
         }
     }
 }
