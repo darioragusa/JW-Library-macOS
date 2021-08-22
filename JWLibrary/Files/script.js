@@ -28,8 +28,14 @@ function generateSelectable() {
 	body.appendChild(script);
 	makeSelectable();
 };
-// Usage:
 generateSelectable();
+
+function initView() {
+	document.querySelectorAll('video').forEach(e => e.remove());
+	// Magari serviranno altre robe
+}
+initView();
+
 function makeSelectable() {
 	var spans = document.querySelectorAll('selectable');
 	// here starts the logic

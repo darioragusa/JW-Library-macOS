@@ -20,7 +20,11 @@ struct PubDocumentView: View {
                         document = doc
                         showArticle = true
                     }, label: {
-                        Text("\(doc.title)")
+                        if let context = doc.contextTitle {
+                            Text("\(context) - \(doc.title)")
+                        } else {
+                            Text("\(doc.title)")
+                        }
                     })
                     Spacer()
                 }

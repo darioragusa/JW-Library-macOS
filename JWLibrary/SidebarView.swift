@@ -18,8 +18,8 @@ struct SidebarView: View {
                     NavigationLink(destination: BibleView().navigationTitle("Bibbia")) {
                         Label("Bibbia", systemImage: "book.fill")
                     }
-                    NavigationLink(destination: PubView().navigationTitle("Publicazioni")) {
-                        Label("Publicazioni", systemImage: "doc.text.fill")
+                    NavigationLink(destination: PubView().navigationTitle("Pubblicazioni")) {
+                        Label("Pubblicazioni", systemImage: "doc.text.fill")
                     }
                     NavigationLink(destination: ContentView().navigationTitle("Multimedia")) {
                         Label("Multimedia", systemImage: "film")

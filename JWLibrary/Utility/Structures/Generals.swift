@@ -61,4 +61,5 @@ struct Publication {
 struct Document {
     var documentId: Int
     var title: String
+    var contextTitle: String?
 }
