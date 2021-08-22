@@ -18,16 +18,6 @@ struct BibleButtonStyle: ButtonStyle {
     }
 }
 
-struct EditButtonStyle: ButtonStyle {
-    let color: Color
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .foregroundColor(Color.white)
-            .background(color)
-            .cornerRadius(6.0)
-    }
-}
-
 struct TransparentButtonStyle: ButtonStyle {
     let color: Color
     func makeBody(configuration: Self.Configuration) -> some View {

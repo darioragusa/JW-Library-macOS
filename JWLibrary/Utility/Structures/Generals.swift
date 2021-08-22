@@ -42,3 +42,23 @@ struct Note {
     var title: String
     var content: String
 }
+
+struct Publication {
+    var ID: Int
+    var keySymbol: String
+    var year: Int
+    var mepsLanguageId: Int
+    var publicationTypeId: Int
+    var issueTagNumber: Int
+    var title: String
+    var issueTitle: String?
+    // Only Bible
+    var isBible: Bool = false
+    var book: Int?
+    var chapter: Int?
+}
+
+struct Document {
+    var documentId: Int
+    var title: String
+}

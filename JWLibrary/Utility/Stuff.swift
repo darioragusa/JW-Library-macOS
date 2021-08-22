@@ -48,6 +48,8 @@ class Stuff {
         ]
         let userDataFolder = FileManager.getDocumentsDirectory().appendingPathComponent("userData")
         try? FileManager().createDirectory(at: userDataFolder, withIntermediateDirectories: true, attributes: nil)
+        let documentsFolder = FileManager.getDocumentsDirectory().appendingPathComponent("Documents_I")
+        try? FileManager().createDirectory(at: documentsFolder, withIntermediateDirectories: true, attributes: nil)
         try? FileManager().removeItem(at: files[0])
         try? FileManager().removeItem(at: files[1])
         for file in files {
@@ -63,5 +65,58 @@ class Stuff {
         } else {
             return "Mac"
         }
+    }
+
+    static func getManifest() -> String? {
+        var currentManifest: String?
+        guard let url = URL(string: "https://app.jw-cdn.org/catalogs/publications/v4/manifest.json") else {
+            return currentManifest
+        }
+        let semaphore = DispatchSemaphore(value: 0)
+        URLSession.shared.dataTask(with: url, completionHandler: {(data, _, error) in
+            guard let data = data, error == nil else { return }
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+                let current = json?["current"] as? String ?? ""
+                print("Manifest: \(current) ✅")
+                currentManifest = current
+                semaphore.signal()
+            } catch {
+                print("Error \(error) ⚠️")
+                semaphore.signal()
+            }
+        }).resume()
+        _ = semaphore.wait(timeout: .distantFuture)
+        return currentManifest
+    }
+
+    static func getJWPubUrl(apiLink: URL) -> String? {
+        var pubUrlString: String?
+        let semaphore = DispatchSemaphore(value: 0)
+        URLSession.shared.dataTask(with: apiLink, completionHandler: {(data, _, error) in
+            guard let data = data, error == nil else { return }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                    if let files = json["files"] as? [String: Any] {
+                        if let lang = files["I"] as? [String: [Any]] {
+                            if let JWPUB = lang["JWPUB"]![0] as? [String: Any] {
+                                if let file = JWPUB["file"] as? [String: Any] {
+                                    if let pubbUrlS = file["url"] as? String {
+                                        print("Manifest: \(pubbUrlS) ✅")
+                                        pubUrlString = pubbUrlS
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                semaphore.signal()
+            } catch {
+                print("Error \(error) ⚠️")
+                semaphore.signal()
+            }
+        }).resume()
+        _ = semaphore.wait(timeout: .distantFuture)
+        return pubUrlString
     }
 }

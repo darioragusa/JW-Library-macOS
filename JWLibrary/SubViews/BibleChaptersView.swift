@@ -11,12 +11,14 @@ struct BibleChaptersView: View {
     @State var bibleBook: BibleBook
     @Binding var bibleBookIndex: Int
     @Binding var chapter: Int
+    @Binding var showArticle: Bool
 
     var body: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 40))], spacing: 20) {
             ForEach(1...bibleBook.chapters, id: \.self) { x in
                 Button(action: {
                     chapter = x
+                    showArticle = true
                 }, label: {
                     Text("\(x)").frame(width: 25)
                 })

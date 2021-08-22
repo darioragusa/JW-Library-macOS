@@ -17,53 +17,25 @@ var highlightColors: [Color] = [
 ]
 
 struct ArticleView: View {
-    @State var pubb: String
+    @Binding var showArticle: Bool
+    @State var pub: Publication?
     @State var prevText: String
     @State var geometryReader: GeometryProxy
-    @State var book: Int
+    @State var document: Document?
     @State var editMode: Bool = false
-    @State var highlight: Int = 0
-    @Binding var chapter: Int
+    @State var highlight: ((Int) -> Void)?
+    @State var filePath: String
 
     var body: some View {
-        var browser = WebBrowserView(highlight: $highlight, pubb: pubb, book: book, chapter: chapter)
-        ZStack {
-            browser.onAppear(perform: {
-                browser.load()
-            }).frame(width: geometryReader.size.width, height: geometryReader.size.height - 2).padding(0)
-            HStack { Spacer(); VStack { Spacer()
-                if editMode {
-                    ForEach(highlightColors, id: \.self, content: { color in
-                        Button(action: {
-                            editMode = !editMode
-                            highlight = highlightColors.firstIndex(of: color)! + 1
-                        }, label: {
-                            Image(systemName: "paintbrush.fill").padding(3)
-                        }).buttonStyle(EditButtonStyle(color: color)).onDisappear(perform: {
-                            highlight = 0
-                        })
-                    })
-                    Button(action: {
-                        editMode = !editMode
-                        highlight = -1
-                    }, label: {
-                        Image(systemName: "trash").padding(3)
-                    }).buttonStyle(EditButtonStyle(color: Color.black)).onDisappear(perform: {
-                        highlight = 0
-                    })
-                }
-                Button(action: {
-                    editMode = !editMode
-                }, label: {
-                    (editMode ? Image(systemName: "pencil.slash") : Image(systemName: "pencil")).padding(3)
-                }).buttonStyle(EditButtonStyle(color: Stuff.hexColor(hex: 0x888888)))
-            }}.padding(.horizontal, 20).padding(.vertical, 5)
-        }
+        var browser = WebBrowserView(highlight: $highlight, filePath: filePath, pub: pub!, document: document)
+        browser.onAppear(perform: {
+            browser.load()
+        }).frame(width: geometryReader.size.width, height: geometryReader.size.height - 2).padding(0)
         .navigationTitle("")
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 Button(action: {
-                    chapter = 0
+                    showArticle = false
                 }, label: {
                     HStack {
                         Image(systemName: "chevron.left")
@@ -72,7 +44,25 @@ struct ArticleView: View {
                 })
             }
             ToolbarItem(placement: .navigation) {
-                Text("\(chapter)").font(.title2)
+                if pub!.isBible {
+                    Text("\(pub?.chapter ?? 0)").font(.title2)
+                } else {
+                    Text(document?.title ?? "").font(.title2)
+                }
+            }
+            ToolbarItemGroup(placement: .primaryAction) {
+                ForEach(highlightColors, id: \.self, content: { color in
+                    Button(action: {
+                        highlight?(highlightColors.firstIndex(of: color)! + 1)
+                    }, label: {
+                        Image(systemName: "paintbrush.fill").foregroundColor(color)
+                    })
+                })
+                Button(action: {
+                    highlight?(-1)
+                }, label: {
+                    Image(systemName: "trash")
+                })
             }
         }
     }

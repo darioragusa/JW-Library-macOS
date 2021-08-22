@@ -55,15 +55,15 @@ class BackupManager {
                 print("LastMod updated to \(timeStamp) ✅")
             } else {
                 let errmsg = String(cString: sqlite3_errmsg(db)!)
-                print("error: \(errmsg) ⚠️")
+                print("Error: \(errmsg) ⚠️")
             }
         } else {
-            print("error opening database ⚠️")
+            print("Error opening database ⚠️")
         }
         sqlite3_close(db)
         db = nil
     }
-    private static func storeDataInDB() {
+    static func storeDataInDB() {
         var db: OpaquePointer?
         if sqlite3_open(Paths.dbPath.path, &db) == SQLITE_OK {
             let query = "PRAGMA wal_checkpoint(TRUNCATE);"
@@ -71,10 +71,10 @@ class BackupManager {
                 print("Data stored in DB ✅")
             } else {
                 let errmsg = String(cString: sqlite3_errmsg(db)!)
-                print("error: \(errmsg) ⚠️")
+                print("Error: \(errmsg) ⚠️")
             }
         } else {
-            print("error opening database ⚠️")
+            print("Error opening database ⚠️")
         }
         sqlite3_close(db)
         db = nil

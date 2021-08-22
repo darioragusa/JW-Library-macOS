@@ -9,7 +9,7 @@ import Foundation
 import SQLite3
 
 class UserMarkManager {
-    static func addUserMark(color: Int, locationId: Int, pubbKey: String, lang: Int = 4) -> Int {
+    static func addUserMark(color: Int, locationId: Int, lang: Int = 4) -> Int {
         let markGuid: String = UUID().uuidString
         var db: OpaquePointer?
         var lastID: Int = 0
@@ -19,14 +19,14 @@ class UserMarkManager {
                         VALUES (\(color), \(locationId), 0, '\(markGuid)', 1);
                         """
             if sqlite3_exec(db, query, nil, nil, nil) == SQLITE_OK {
-                print("VALUES (\(color), \(locationId), 0, \(pubbKey), \(lang), 0) ADDED TO UserMark ✅")
+                print("VALUES (\(color), \(locationId), 0, \(lang), 0) ADDED TO UserMark ✅")
                 lastID = Int(sqlite3_last_insert_rowid(db))
             } else {
                 let errmsg = String(cString: sqlite3_errmsg(db)!)
-                print("error: \(errmsg) ⚠️")
+                print("Error: \(errmsg) ⚠️")
             }
         } else {
-            print("error opening database ⚠️")
+            print("Error opening database ⚠️")
         }
         sqlite3_close(db)
         db = nil
@@ -47,7 +47,7 @@ class UserMarkManager {
                 sqlite3_finalize(statement)
             }
         } else {
-            print("error opening database ⚠️")
+            print("Error opening database ⚠️")
         }
         sqlite3_close(db)
         db = nil
@@ -62,10 +62,10 @@ class UserMarkManager {
                 print("UserMark removed ✅")
             } else {
                 let errmsg = String(cString: sqlite3_errmsg(db)!)
-                print("error \(errmsg) ⚠️")
+                print("Error \(errmsg) ⚠️")
             }
         } else {
-            print("error opening database ⚠️")
+            print("Error opening database ⚠️")
         }
         sqlite3_close(db)
         db = nil

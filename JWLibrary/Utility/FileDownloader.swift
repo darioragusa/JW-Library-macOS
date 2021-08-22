@@ -9,18 +9,17 @@ import Foundation
 
 class FileDownloader {
     static func loadFileSync(url: URL, completion: @escaping (String?, Error?) -> Void) {
-        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destinationUrl = documentsUrl.appendingPathComponent(url.lastPathComponent)
+        let destinationUrl = FileManager.getDocumentsDirectory().appendingPathComponent(url.lastPathComponent)
         if FileManager().fileExists(atPath: destinationUrl.path) {
             print("File already exists [\(destinationUrl.path)]")
             completion(destinationUrl.path, nil)
         } else if let dataFromURL = NSData(contentsOf: url) {
             if dataFromURL.write(to: destinationUrl, atomically: true) {
-                print("file saved [\(destinationUrl.path)]")
-                JWPubManager.extractPubb(url: url)
+                print("File saved [\(destinationUrl.path)] ✅")
+                JWPubManager.extractPub(url: url)
                 completion(destinationUrl.path, nil)
             } else {
-                print("error saving file")
+                print("Error saving file ⚠️")
                 let error = NSError(domain: "Error saving file", code: 1001, userInfo: nil)
                 completion(destinationUrl.path, error)
             }
@@ -31,8 +30,7 @@ class FileDownloader {
     }
 
     static func loadFileAsync(url: URL, completion: @escaping (String?, Error?) -> Void) {
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destinationUrl = documentsUrl.appendingPathComponent(url.lastPathComponent)
+        let destinationUrl = FileManager.getDocumentsDirectory().appendingPathComponent(url.lastPathComponent)
         if FileManager().fileExists(atPath: destinationUrl.path) {
             print("File already exists [\(destinationUrl.path)]")
             completion(destinationUrl.path, nil)
@@ -45,11 +43,29 @@ class FileDownloader {
                     if let response = response as? HTTPURLResponse {
                         if response.statusCode == 200 {
                             if let data = data {
-                                if (try? data.write(to: destinationUrl, options: Data.WritingOptions.atomic)) != nil {
-                                    JWPubManager.extractPubb(url: url)
-                                    completion(destinationUrl.path, error)
+                                if "\(url)".hasSuffix("jwpub") {
+                                    if (try? data.write(to: destinationUrl, options: Data.WritingOptions.atomic)) != nil {
+                                        JWPubManager.extractPub(url: url)
+                                        completion(destinationUrl.path, error)
+                                    } else {
+                                        completion(destinationUrl.path, error)
+                                    }
+                                } else if "\(url)".hasSuffix("gz") {
+                                    do {
+                                        let newDest = "\(destinationUrl)".replacingOccurrences(of: ".gz", with: "")
+                                        let decompressedData = try data.gunzipped()
+                                        try decompressedData.write(to: URL(string: newDest)!, options: Data.WritingOptions.atomic)
+                                        completion(destinationUrl.path, error)
+                                    } catch {
+                                        completion(destinationUrl.path, error)
+                                    }
                                 } else {
-                                    completion(destinationUrl.path, error)
+                                    do {
+                                        try data.write(to: destinationUrl, options: Data.WritingOptions.atomic)
+                                        completion(destinationUrl.path, error)
+                                    } catch {
+                                        completion(destinationUrl.path, error)
+                                    }
                                 }
                             } else {
                                 completion(destinationUrl.path, error)
@@ -67,10 +83,10 @@ class FileDownloader {
     static func downloadArticle(url: URL, path: String) {
         do {
             if FileManager.articleExist(path: path) {
-                print("Skipping \(path)")
+                print("Skipping \(path) ✅")
                 return
             } else {
-                print("Downloading \(path)")
+                print("Downloading \(path) ✅")
             }
             let HTMLString = try String(contentsOf: url, encoding: .utf8)
             var article = HTMLString.components(separatedBy: "<div class=\"scalableui\">").last
@@ -79,25 +95,13 @@ class FileDownloader {
                 let destinationUrl = FileManager.getDocumentsDirectory().appendingPathComponent(path)
                 try article!.write(toFile: destinationUrl.path, atomically: true, encoding: .utf8)
             } catch {
-                print("Error", error)
+                print("Error: \(error) ⚠️")
                 return
             }
         } catch let error {
-            print("Error: \(error)")
+            print("Error: \(error) ⚠️")
         }
     }
-
-    /*static func downloadBible(_ bibleBooks: [BibleBook], _ downloadProgress: inout String, completion: (_ success: Bool) -> Void) {
-        for book in bibleBooks {
-            for chapter in 1...book.chapters {
-                let destinationUrl = FileManager.getDocumentsDirectory().appendingPathComponent("nwt_I/\(book.ID)")
-                try? FileManager().createDirectory(at: destinationUrl, withIntermediateDirectories: true, attributes: nil)
-                downloadArticle(url: URL(string: "https://wol.jw.org/it/wol/b/r6/lp-i/nwtsty/\(book.ID)/\(chapter)#study=discover")!, path: "nwt_I/\(book.ID)/\(chapter).html")
-                downloadProgress += "\nnwt_I/\(book.ID)/\(chapter)"
-            }
-        }
-        completion(true)
-    }*/
 }
 
 /*

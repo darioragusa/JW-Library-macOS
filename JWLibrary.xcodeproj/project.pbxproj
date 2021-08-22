@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E701901726CC208A0048C70C /* Data+Gzip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E701901626CC208A0048C70C /* Data+Gzip.swift */; };
 		E712892225A49E2200EF8140 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = E712892125A49E2200EF8140 /* script.js */; };
 		E72CA45726B29B3B008E5E32 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72CA45626B29B3B008E5E32 /* Paths.swift */; };
 		E72CA45926B29FA9008E5E32 /* PersonalStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72CA45826B29FA9008E5E32 /* PersonalStudyView.swift */; };
@@ -36,10 +37,12 @@
 		E776A54326B2956800F257EB /* BlockRangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E776A54226B2956800F257EB /* BlockRangeManager.swift */; };
 		E776A54526B295F900F257EB /* UserMarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E776A54426B295F900F257EB /* UserMarkManager.swift */; };
 		E776A54726B2965E00F257EB /* BackupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E776A54626B2965E00F257EB /* BackupManager.swift */; };
+		E77F100626CFAF130044BBDA /* PubDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F100526CFAF130044BBDA /* PubDocumentView.swift */; };
+		E77F100826CFB3260044BBDA /* PubListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F100726CFB3260044BBDA /* PubListView.swift */; };
 		E77FD4EE25A208D400469C6D /* manifestDefault.json in Resources */ = {isa = PBXBuildFile; fileRef = E77FD4EC25A208D400469C6D /* manifestDefault.json */; };
 		E77FD4EF25A208D400469C6D /* user_data.db in Resources */ = {isa = PBXBuildFile; fileRef = E77FD4ED25A208D400469C6D /* user_data.db */; };
 		E77FD4F125A2093B00469C6D /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = E77FD4F025A2093B00469C6D /* style.css */; };
-		E7801E2525AF444C005C86C8 /* PubbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7801E2425AF444C005C86C8 /* PubbView.swift */; };
+		E7801E2525AF444C005C86C8 /* PubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7801E2425AF444C005C86C8 /* PubView.swift */; };
 		E78B7B37259F58E600F27D2E /* JWPubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B36259F58E600F27D2E /* JWPubManager.swift */; };
 		E78B7B3A259F592300F27D2E /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B39259F592300F27D2E /* FileDownloader.swift */; };
 		E78B7B43259F5C2800F27D2E /* BibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B42259F5C2800F27D2E /* BibleView.swift */; };
@@ -68,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E701901626CC208A0048C70C /* Data+Gzip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Gzip.swift"; sourceTree = "<group>"; };
 		E712892125A49E2200EF8140 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 		E72CA45626B29B3B008E5E32 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		E72CA45826B29FA9008E5E32 /* PersonalStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalStudyView.swift; sourceTree = "<group>"; };
@@ -100,10 +104,12 @@
 		E776A54226B2956800F257EB /* BlockRangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRangeManager.swift; sourceTree = "<group>"; };
 		E776A54426B295F900F257EB /* UserMarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMarkManager.swift; sourceTree = "<group>"; };
 		E776A54626B2965E00F257EB /* BackupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupManager.swift; sourceTree = "<group>"; };
+		E77F100526CFAF130044BBDA /* PubDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubDocumentView.swift; sourceTree = "<group>"; };
+		E77F100726CFB3260044BBDA /* PubListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubListView.swift; sourceTree = "<group>"; };
 		E77FD4EC25A208D400469C6D /* manifestDefault.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = manifestDefault.json; sourceTree = "<group>"; };
 		E77FD4ED25A208D400469C6D /* user_data.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = user_data.db; sourceTree = "<group>"; };
 		E77FD4F025A2093B00469C6D /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
-		E7801E2425AF444C005C86C8 /* PubbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubbView.swift; sourceTree = "<group>"; };
+		E7801E2425AF444C005C86C8 /* PubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubView.swift; sourceTree = "<group>"; };
 		E78B7B36259F58E600F27D2E /* JWPubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWPubManager.swift; sourceTree = "<group>"; };
 		E78B7B39259F592300F27D2E /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
 		E78B7B42259F5C2800F27D2E /* BibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleView.swift; sourceTree = "<group>"; };
@@ -158,7 +164,6 @@
 				E77503C2259F468600F1E263 /* JWLibraryApp.swift */,
 				E77503D7259F47D600F1E263 /* SidebarView.swift */,
 				E77503C4259F468600F1E263 /* ContentView.swift */,
-				E7508B9E25A12BB100A1E16B /* WebBrowserView.swift */,
 				E77503C6259F468600F1E263 /* Assets.xcassets */,
 				E77503CB259F468600F1E263 /* Info.plist */,
 				E77503CC259F468600F1E263 /* JWLibrary.entitlements */,
@@ -231,7 +236,6 @@
 				E78B7B39259F592300F27D2E /* FileDownloader.swift */,
 				E78B7B36259F58E600F27D2E /* JWPubManager.swift */,
 				E73B94CC259F89940053F13A /* DBManager.swift */,
-				E73DC99126C469B50024C1FB /* JWPubExtractor.swift */,
 				E7508B9625A0D4DF00A1E16B /* Stuff.swift */,
 			);
 			path = Utility;
@@ -243,8 +247,11 @@
 				E78B7B42259F5C2800F27D2E /* BibleView.swift */,
 				E7508B9A25A0DDE900A1E16B /* BibleBooksView.swift */,
 				E7508B9825A0DDB200A1E16B /* BibleChaptersView.swift */,
+				E7801E2425AF444C005C86C8 /* PubView.swift */,
+				E77F100726CFB3260044BBDA /* PubListView.swift */,
+				E77F100526CFAF130044BBDA /* PubDocumentView.swift */,
 				E7508B9C25A1240A00A1E16B /* ArticleView.swift */,
-				E7801E2425AF444C005C86C8 /* PubbView.swift */,
+				E7508B9E25A12BB100A1E16B /* WebBrowserView.swift */,
 				E72CA45826B29FA9008E5E32 /* PersonalStudyView.swift */,
 			);
 			path = SubViews;
@@ -253,6 +260,7 @@
 		E78B7B6B259F67C200F27D2E /* Zip */ = {
 			isa = PBXGroup;
 			children = (
+				E701901626CC208A0048C70C /* Data+Gzip.swift */,
 				E78B7B7E259F67DF00F27D2E /* CZLib */,
 				E78B7B6C259F67CA00F27D2E /* ZIPFoundation */,
 			);
@@ -286,6 +294,7 @@
 		E78B850B25A3723700C2A72A /* Robe */ = {
 			isa = PBXGroup;
 			children = (
+				E73DC99126C469B50024C1FB /* JWPubExtractor.swift */,
 				E78B850D25A372B300C2A72A /* AppuntiDel2019.png */,
 			);
 			path = Robe;
@@ -334,6 +343,7 @@
 			knownRegions = (
 				en,
 				Base,
+				it,
 			);
 			mainGroup = E77503B6259F468500F1E263;
 			productRefGroup = E77503C0259F468600F1E263 /* Products */;
@@ -391,12 +401,14 @@
 				E7508B9225A0AFF100A1E16B /* Generals.swift in Sources */,
 				E78B7B7C259F67DB00F27D2E /* Entry.swift in Sources */,
 				E78B7B77259F67DB00F27D2E /* Archive.swift in Sources */,
+				E701901726CC208A0048C70C /* Data+Gzip.swift in Sources */,
 				E776A54326B2956800F257EB /* BlockRangeManager.swift in Sources */,
 				E77503C5259F468600F1E263 /* ContentView.swift in Sources */,
 				E776A53F26B2943600F257EB /* HighlightManager.swift in Sources */,
 				E78B7B7B259F67DB00F27D2E /* Archive+Writing.swift in Sources */,
 				E78B7B43259F5C2800F27D2E /* BibleView.swift in Sources */,
 				E776A54126B294B900F257EB /* LocationManager.swift in Sources */,
+				E77F100626CFAF130044BBDA /* PubDocumentView.swift in Sources */,
 				E776A53626B2931000F257EB /* Ext_Int.swift in Sources */,
 				E7508B9725A0D4DF00A1E16B /* Stuff.swift in Sources */,
 				E776A54726B2965E00F257EB /* BackupManager.swift in Sources */,
@@ -420,7 +432,8 @@
 				E78B7B75259F67DB00F27D2E /* Data+Serialization.swift in Sources */,
 				E7508B9925A0DDB200A1E16B /* BibleChaptersView.swift in Sources */,
 				E7508B9B25A0DDE900A1E16B /* BibleBooksView.swift in Sources */,
-				E7801E2525AF444C005C86C8 /* PubbView.swift in Sources */,
+				E77F100826CFB3260044BBDA /* PubListView.swift in Sources */,
+				E7801E2525AF444C005C86C8 /* PubView.swift in Sources */,
 				E73DC99226C469B50024C1FB /* JWPubExtractor.swift in Sources */,
 				E776A54526B295F900F257EB /* UserMarkManager.swift in Sources */,
 				E7508B9D25A1240A00A1E16B /* ArticleView.swift in Sources */,

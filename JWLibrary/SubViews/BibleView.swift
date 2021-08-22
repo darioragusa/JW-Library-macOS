@@ -14,15 +14,20 @@ struct BibleView: View {
     @State var bibleBooks: [BibleBook] = []
     @State var bibleBookIndex: Int = -1
     @State var chapter = 0
+    @State var showArticle = false
     var body: some View {
         GeometryReader { geometryReader in
             ScrollView {
-                if bibleDownloaded && bibleBooks.count > 0 && bibleBookIndex == -1 {
-                    BibleBooksView(bibleBooks: bibleBooks, bibleBookIndex: $bibleBookIndex)
-                } else if bibleBookIndex > -1 && chapter == 0 {
-                    BibleChaptersView(bibleBook: bibleBooks[bibleBookIndex], bibleBookIndex: $bibleBookIndex, chapter: $chapter)
-                } else if chapter > 0 {
-                    ArticleView(pubb: "nwt_I", prevText: bibleBooks[bibleBookIndex].shortName, geometryReader: geometryReader, book: bibleBookIndex + 1, chapter: $chapter)
+                if showArticle {
+                    ArticleView(showArticle: $showArticle,
+                                pub: Publication(ID: 0, keySymbol: "nwtsty", year: 2021, mepsLanguageId: 4, publicationTypeId: 1, issueTagNumber: 0, title: "Traduzione del Nuovo Mondo delle Sacre Scritture (edizione per lo studio)", isBible: true, book: bibleBookIndex + 1, chapter: chapter),
+                                prevText: bibleBooks[bibleBookIndex].shortName,
+                                geometryReader: geometryReader,
+                                filePath: "nwt_I/\(bibleBookIndex + 1)/\(chapter).html")
+                } else if bibleBookIndex > -1 {
+                    BibleChaptersView(bibleBook: bibleBooks[bibleBookIndex], bibleBookIndex: $bibleBookIndex, chapter: $chapter, showArticle: $showArticle)
+                } else if bibleDownloaded && bibleBooks.count > 0 && bibleBookIndex == -1 {
+                        BibleBooksView(bibleBooks: bibleBooks, bibleBookIndex: $bibleBookIndex)
                 } else {
                     Text(downloadProgress)
                         .padding()

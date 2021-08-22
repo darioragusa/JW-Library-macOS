@@ -25,7 +25,7 @@ class NoteManager {
                 sqlite3_finalize(statement)
             }
         } else {
-            print("error opening database ⚠️")
+            print("Error opening database ⚠️")
         }
         sqlite3_close(db)
         db = nil

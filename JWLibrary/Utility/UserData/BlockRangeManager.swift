@@ -9,26 +9,26 @@ import Foundation
 import SQLite3
 
 class BlockRangeManager {
-    static func addBlockRange(identifier: Int, startToken: Int, endToken: Int, markId: Int) {
+    static func addBlockRange(pub: Publication, identifier: Int, startToken: Int, endToken: Int, markId: Int) {
         var db: OpaquePointer?
         if sqlite3_open(Paths.dbPath.path, &db) == SQLITE_OK {
             let query = """
                         INSERT INTO BlockRange (BlockType, Identifier, StartToken, EndToken, UserMarkId)
-                        VALUES (2, \(identifier), \(startToken), \(endToken), \(markId));
+                        VALUES (\(pub.isBible ? 2 : 1), \(identifier), \(startToken), \(endToken), \(markId));
                         """
             if sqlite3_exec(db, query, nil, nil, nil) == SQLITE_OK {
                 print("VALUES (\(identifier), \(startToken), \(endToken), \(markId)) ADDED TO BlockRange ✅")
             } else {
                 let errmsg = String(cString: sqlite3_errmsg(db)!)
-                print("error: \(errmsg) ⚠️")
+                print("Error: \(errmsg) ⚠️")
             }
         } else {
-            print("error opening database ⚠️")
+            print("Error opening database ⚠️")
         }
         sqlite3_close(db)
         db = nil
     }
-    static func getExistingBlockRange(blockRange: BlockRange) -> [Existing] {
+    static func getExistingBlockRange(blockRange: BlockRange, locationId: Int) -> [Existing] {
         var db: OpaquePointer?
         var existingArray: [Existing] = []
         if sqlite3_open(Paths.dbPath.path, &db) == SQLITE_OK {
@@ -36,6 +36,7 @@ class BlockRangeManager {
                         SELECT BlockRange.UserMarkId, BlockRange.StartToken, BlockRange.EndToken, ColorIndex FROM  BlockRange
                         JOIN UserMark On BlockRange.UserMarkId = UserMark.UserMarkId
                         WHERE BlockRange.Identifier = \(blockRange.identifier) AND
+                        UserMark.LocationID = \(locationId) AND
                         ((EndToken BETWEEN \(blockRange.startToken) AND \(blockRange.endToken)) OR
                          (StartToken BETWEEN \(blockRange.startToken) AND \(blockRange.endToken)) OR
                         (StartToken >= \(blockRange.startToken) AND EndToken <= \(blockRange.endToken)));
@@ -56,7 +57,7 @@ class BlockRangeManager {
                 sqlite3_finalize(statement)
             }
         } else {
-            print("error opening database ⚠️")
+            print("Error opening database ⚠️")
         }
         sqlite3_close(db)
         db = nil
@@ -79,7 +80,7 @@ class BlockRangeManager {
                 sqlite3_finalize(statement)
             }
         } else {
-            print("error opening database ⚠️")
+            print("Error opening database ⚠️")
         }
         sqlite3_close(db)
         db = nil
@@ -93,10 +94,10 @@ class BlockRangeManager {
                 print("BlockRange removed ✅")
             } else {
                 let errmsg = String(cString: sqlite3_errmsg(db)!)
-                print("error \(errmsg) ⚠️")
+                print("Error \(errmsg) ⚠️")
             }
         } else {
-            print("error opening database ⚠️")
+            print("Error opening database ⚠️")
         }
         sqlite3_close(db)
         db = nil
@@ -109,10 +110,10 @@ class BlockRangeManager {
                 print("BlockRange updated ✅")
             } else {
                 let errmsg = String(cString: sqlite3_errmsg(db)!)
-                print("error \(errmsg) ⚠️")
+                print("Error \(errmsg) ⚠️")
             }
         } else {
-            print("error opening database ⚠️")
+            print("Error opening database ⚠️")
         }
         sqlite3_close(db)
         db = nil
