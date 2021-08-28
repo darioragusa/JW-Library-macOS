@@ -53,7 +53,7 @@ class Stuff {
         try? FileManager().removeItem(at: files[0])
         try? FileManager().removeItem(at: files[1])
         for file in files {
-            if !FileManager.fileExist(url: file) {
+            if !FileManager.extractedJWPubExist(url: file) {
                 try? FileManager().copyfileToUserDocumentDirectory(destPath: file)
             }
         }

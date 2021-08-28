@@ -96,7 +96,7 @@ struct PubListView: View {
     }
     func existPub(_ pub: Publication) -> Bool {
         let pubName = "\(pub.keySymbol)_I\(pub.issueTagNumber != 0 ? "_\("\(pub.issueTagNumber)".hasSuffix("00") ? pub.issueTagNumber / 100 : pub.issueTagNumber)" : "")"
-        return FileManager.fileExist(url: FileManager.getDocumentsDirectory().appendingPathComponent(pubName))
+        return FileManager.extractedJWPubExist(url: FileManager.getDocumentsDirectory().appendingPathComponent(pubName))
     }
     func deletePub(_ pub: Publication) {
         isDoingStuff = true

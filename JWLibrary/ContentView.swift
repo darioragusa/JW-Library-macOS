@@ -15,7 +15,7 @@ struct ContentView: View {
             }, label: {
                 Text("Importa backup")
             })
-            Text("Hello, world!")
+            Text("JW Library")
             .padding()
             Button(action: {
                 BackupManager.createBackup()

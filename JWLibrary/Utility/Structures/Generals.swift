@@ -59,7 +59,19 @@ struct Publication {
 }
 
 struct Document {
+    var ID: Int
     var documentId: Int
     var title: String
     var contextTitle: String?
+}
+
+struct BibleCitation {
+    var firstBibleVerseId: Int
+    var lastBibleVerseId: Int
+}
+
+struct BibleVerses {
+    var bookNumber: Int
+    var chapterNumber: Int
+    var versesIds: [Int]
 }

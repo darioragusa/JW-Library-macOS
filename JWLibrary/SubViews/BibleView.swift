@@ -35,7 +35,7 @@ struct BibleView: View {
             }
         }
         .onAppear(perform: {
-            if !FileManager.fileExist(url: bibleURL) {
+            if !FileManager.extractedJWPubExist(url: bibleURL) {
                 FileDownloader.loadFileAsync(url: bibleURL, completion: { _, _ in
                     bibleBooks = DBManager.getBibleBooks()
                     downloadText("Scarico")

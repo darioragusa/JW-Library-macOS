@@ -11,7 +11,7 @@ import SQLite3
 class DBManager {
     static func getBibleBooks() -> [BibleBook] {
         var bibleBooks: [BibleBook] = []
-        let biblePath = FileManager.getDocumentsDirectory().appendingPathComponent("/nwt_I/contents/nwt_I.db")
+        let biblePath = FileManager.getDocumentsDirectory().appendingPathComponent("nwt_I/contents/nwt_I.db")
         var db: OpaquePointer?
         if sqlite3_open("\(biblePath)", &db) == SQLITE_OK {
             let query = """
@@ -39,7 +39,7 @@ class DBManager {
     }
     static func getPublications() -> [Publication] {
         var publications: [Publication] = []
-        let catalogPath = FileManager.getDocumentsDirectory().appendingPathComponent("/catalog.db")
+        let catalogPath = FileManager.getDocumentsDirectory().appendingPathComponent("catalog.db")
         var db: OpaquePointer?
         if sqlite3_open("\(catalogPath)", &db) == SQLITE_OK {
             let query = """

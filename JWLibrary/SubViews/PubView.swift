@@ -29,7 +29,7 @@ struct PubView: View {
             }
         }
         .onAppear(perform: {
-            if !FileManager.fileExist(url: FileManager.getDocumentsDirectory().appendingPathComponent("catalog.db")) {
+            if !FileManager.extractedJWPubExist(url: FileManager.getDocumentsDirectory().appendingPathComponent("catalog.db")) {
                 downloadCatalog()
             } else {
                 publications = DBManager.getPublications()

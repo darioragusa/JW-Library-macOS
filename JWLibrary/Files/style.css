@@ -42,7 +42,7 @@ header {
 }
 img {
     height: auto;
-    width 100%;
+    width: 100%;
     max-width: 600px;
     vertical-align: bottom;
     border-style: none;
@@ -115,21 +115,31 @@ sup {
     color: #626262;
 }
 
+.treasures--rev2021 h1, .treasures--rev2021 h2, .treasures--rev2021 h3, .treasures--rev2021 h4, .treasures--rev2021 h5, .treasures--rev2021 h6, .treasures--rev2021>p {
+    color: #656164;
+}
+.ministry--rev2021 h1, .ministry--rev2021 h2, .ministry--rev2021 h3, .ministry--rev2021 h4, .ministry--rev2021 h5, .ministry--rev2021 h6, .ministry--rev2021>p {
+    color: #a56803;
+}
+.christianLiving--rev2021 h1, .christianLiving--rev2021 h2, .christianLiving--rev2021 h3, .christianLiving--rev2021 h4, .christianLiving--rev2021 h5, .christianLiving--rev2021 h6, .christianLiving--rev2021>p {
+    color: #99131e;
+}
+
 .highlightingcolor1 {
-    background-color: #ffeb3b;
+    background-color: #ffeb3b80;
 }
 .highlightingcolor2 {
-    background-color: #9ef953;
+    background-color: #9ef95380;
 }
 .highlightingcolor3 {
-    background-color: #29b6f6;
+    background-color: #29b6f680;
 }
 .highlightingcolor4 {
-    background-color: #ffa1c8;
+    background-color: #ffa1c880;
 }
 .highlightingcolor5 {
-    background-color: #ffb976;
+    background-color: #ffb97680;
 }
 .highlightingcolor6 {
-    background-color: #af85ff;
+    background-color: #af85ff80;
 }

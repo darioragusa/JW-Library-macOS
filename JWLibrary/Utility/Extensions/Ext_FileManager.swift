@@ -25,7 +25,7 @@ extension FileManager {
         return FileManager().fileExists(atPath: destinationUrl.path)
     }
 
-    static func fileExist(url: URL) -> Bool { // https://download-a.akamaihd.net/files/media_publication/c1/nwt_I.jwpub
+    static func extractedJWPubExist(url: URL) -> Bool { // https://download-a.akamaihd.net/files/media_publication/c1/nwt_I.jwpub
         let destinationUrl = getDocumentsDirectory().appendingPathComponent(url.lastPathComponent)
         return FileManager().fileExists(atPath: destinationUrl.path.replacingOccurrences(of: ".jwpub", with: ""))
     }

@@ -39,32 +39,10 @@ extension String {
     }
 
     func monthN() -> Int {
-        switch self.lowercased() {
-        case "gennaio":
-            return 1
-        case "febbraio":
-            return 2
-        case "marzo":
-            return 3
-        case "aprile":
-            return 4
-        case "maggio":
-            return 5
-        case "giugno":
-            return 6
-        case "luglio":
-            return 7
-        case "agosto":
-            return 8
-        case "settembre":
-            return 9
-        case "ottobre":
-            return 10
-        case "novembre":
-            return 11
-        case "dicembre":
-            return 12
-        default:
+        let months = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"]
+        if let firstIndex = months.firstIndex(of: self.lowercased()) {
+            return firstIndex
+        } else {
             return 0
         }
     }

@@ -12,33 +12,10 @@ extension Int {
         return String(format: "%02d", self)
     }
     func monthN() -> String {
-        switch self {
-        case 1:
-            return "Gennaio"
-        case 2:
-            return "Febbraio"
-        case 3:
-            return "Marzo"
-        case 4:
-            return "Aprile"
-        case 5:
-            return "Maggio"
-        case 6:
-            return "Giugno"
-        case 7:
-            return "Luglio"
-        case 8:
-            return "Agosto"
-        case 9:
-            return "Settembre"
-        case 10:
-            return "Ottobre"
-        case 11:
-            return "Novembre"
-        case 12:
-            return "Dicembre"
-        default:
-            return ""
+        let months = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
+        if self >= 1 && self <= 12 {
+            return months[self - 1]
         }
+        return ""
     }
 }

@@ -20,7 +20,7 @@
 		E7508B9925A0DDB200A1E16B /* BibleChaptersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9825A0DDB200A1E16B /* BibleChaptersView.swift */; };
 		E7508B9B25A0DDE900A1E16B /* BibleBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9A25A0DDE900A1E16B /* BibleBooksView.swift */; };
 		E7508B9D25A1240A00A1E16B /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9C25A1240A00A1E16B /* ArticleView.swift */; };
-		E7508B9F25A12BB100A1E16B /* WebBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9E25A12BB100A1E16B /* WebBrowserView.swift */; };
+		E7508B9F25A12BB100A1E16B /* WebBrowserArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7508B9E25A12BB100A1E16B /* WebBrowserArticleView.swift */; };
 		E77503C3259F468600F1E263 /* JWLibraryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77503C2259F468600F1E263 /* JWLibraryApp.swift */; };
 		E77503C5259F468600F1E263 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77503C4259F468600F1E263 /* ContentView.swift */; };
 		E77503C7259F468600F1E263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E77503C6259F468600F1E263 /* Assets.xcassets */; };
@@ -55,6 +55,8 @@
 		E78B7B7B259F67DB00F27D2E /* Archive+Writing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B73259F67DB00F27D2E /* Archive+Writing.swift */; };
 		E78B7B7C259F67DB00F27D2E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B7B74259F67DB00F27D2E /* Entry.swift */; };
 		E78B850E25A372B300C2A72A /* AppuntiDel2019.png in Resources */ = {isa = PBXBuildFile; fileRef = E78B850D25A372B300C2A72A /* AppuntiDel2019.png */; };
+		E797844526D8309400129110 /* PubBibleCitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E797844426D8309400129110 /* PubBibleCitations.swift */; };
+		E797844726D9783A00129110 /* WebBrowserAdditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E797844626D9783A00129110 /* WebBrowserAdditionalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,7 +86,7 @@
 		E7508B9825A0DDB200A1E16B /* BibleChaptersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleChaptersView.swift; sourceTree = "<group>"; };
 		E7508B9A25A0DDE900A1E16B /* BibleBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleBooksView.swift; sourceTree = "<group>"; };
 		E7508B9C25A1240A00A1E16B /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
-		E7508B9E25A12BB100A1E16B /* WebBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserView.swift; sourceTree = "<group>"; };
+		E7508B9E25A12BB100A1E16B /* WebBrowserArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserArticleView.swift; sourceTree = "<group>"; };
 		E77503BF259F468600F1E263 /* JW Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JW Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77503C2259F468600F1E263 /* JWLibraryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWLibraryApp.swift; sourceTree = "<group>"; };
 		E77503C4259F468600F1E263 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,8 @@
 		E78B7B7F259F67ED00F27D2E /* shim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shim.h; sourceTree = "<group>"; };
 		E78B7B80259F67ED00F27D2E /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		E78B850D25A372B300C2A72A /* AppuntiDel2019.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppuntiDel2019.png; sourceTree = "<group>"; };
+		E797844426D8309400129110 /* PubBibleCitations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubBibleCitations.swift; sourceTree = "<group>"; };
+		E797844626D9783A00129110 /* WebBrowserAdditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserAdditionalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +241,7 @@
 				E78B7B36259F58E600F27D2E /* JWPubManager.swift */,
 				E73B94CC259F89940053F13A /* DBManager.swift */,
 				E7508B9625A0D4DF00A1E16B /* Stuff.swift */,
+				E797844426D8309400129110 /* PubBibleCitations.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -251,7 +256,8 @@
 				E77F100726CFB3260044BBDA /* PubListView.swift */,
 				E77F100526CFAF130044BBDA /* PubDocumentView.swift */,
 				E7508B9C25A1240A00A1E16B /* ArticleView.swift */,
-				E7508B9E25A12BB100A1E16B /* WebBrowserView.swift */,
+				E7508B9E25A12BB100A1E16B /* WebBrowserArticleView.swift */,
+				E797844626D9783A00129110 /* WebBrowserAdditionalView.swift */,
 				E72CA45826B29FA9008E5E32 /* PersonalStudyView.swift */,
 			);
 			path = SubViews;
@@ -420,11 +426,12 @@
 				E78B7B76259F67DB00F27D2E /* Data+Compression.swift in Sources */,
 				E78B7B79259F67DB00F27D2E /* Archive+Reading.swift in Sources */,
 				E72CA45926B29FA9008E5E32 /* PersonalStudyView.swift in Sources */,
-				E7508B9F25A12BB100A1E16B /* WebBrowserView.swift in Sources */,
+				E7508B9F25A12BB100A1E16B /* WebBrowserArticleView.swift in Sources */,
 				E72CA45B26B2A1B4008E5E32 /* NoteManager.swift in Sources */,
 				E72CA45726B29B3B008E5E32 /* Paths.swift in Sources */,
 				E776A53426B292DC00F257EB /* Ext_String.swift in Sources */,
 				E78B7B37259F58E600F27D2E /* JWPubManager.swift in Sources */,
+				E797844726D9783A00129110 /* WebBrowserAdditionalView.swift in Sources */,
 				E73B94CD259F89940053F13A /* DBManager.swift in Sources */,
 				E78B7B7A259F67DB00F27D2E /* Archive+MemoryFile.swift in Sources */,
 				E77503D8259F47D600F1E263 /* SidebarView.swift in Sources */,
@@ -438,6 +445,7 @@
 				E776A54526B295F900F257EB /* UserMarkManager.swift in Sources */,
 				E7508B9D25A1240A00A1E16B /* ArticleView.swift in Sources */,
 				E77503C3259F468600F1E263 /* JWLibraryApp.swift in Sources */,
+				E797844526D8309400129110 /* PubBibleCitations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -134,9 +134,9 @@ extension FileManager {
     // MARK: - Helpers
 
     func itemExists(at url: URL) -> Bool {
-        // Use `URL.checkResourceIsReachable()` instead of `FileManager.fileExists()` here
+        // Use `URL.checkResourceIsReachable()` instead of `FileManager.extractedJWPubExists()` here
         // because we don't want implicit symlink resolution.
-        // As per documentation, `FileManager.fileExists()` traverses symlinks and therefore a broken symlink
+        // As per documentation, `FileManager.extractedJWPubExists()` traverses symlinks and therefore a broken symlink
         // would throw a `.fileReadNoSuchFile` false positive error.
         // For ZIP files it may be intended to archive "broken" symlinks because they might be
         // resolvable again when extracting the archive to a different destination.

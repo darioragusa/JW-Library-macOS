@@ -74,15 +74,16 @@ class JWPubManager {
         var db: OpaquePointer?
         if sqlite3_open("\(dbPath)", &db) == SQLITE_OK {
             let query = """
-                        SELECT MepsDocumentId, Title, ContextTitle FROM Document;
+                        SELECT DocumentId, MepsDocumentId, Title, ContextTitle FROM Document;
                         """
             var statement: OpaquePointer?
             if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK {
                 while sqlite3_step(statement) == SQLITE_ROW {
-                    let documentId = Int(sqlite3_column_int(statement, 0))
-                    let title = String(cString: sqlite3_column_text(statement, 1))
-                    let contextTitle: String?  = sqlite3_column_type(statement, 2) != SQLITE_NULL ? String(cString: sqlite3_column_text(statement, 2)) : nil
-                    documents.append(Document(documentId: documentId, title: title, contextTitle: contextTitle))
+                    let id = Int(sqlite3_column_int(statement, 0))
+                    let documentId = Int(sqlite3_column_int(statement, 1))
+                    let title = String(cString: sqlite3_column_text(statement, 2))
+                    let contextTitle: String?  = sqlite3_column_type(statement, 3) != SQLITE_NULL ? String(cString: sqlite3_column_text(statement, 3)) : nil
+                    documents.append(Document(ID: id, documentId: documentId, title: title, contextTitle: contextTitle))
                 }
                 sqlite3_finalize(statement)
             }

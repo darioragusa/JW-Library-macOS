@@ -12,7 +12,7 @@ class HighlightManager {
         print("🆘 NUOVA OPERAZIONE 🆘")
         let locationId = LocationManager.getLocation(pub: pub, documentId: documentID)
         let existingArray = BlockRangeManager.getExistingBlockRange(blockRange: newBlockRange, locationId: locationId)
-        if color > 0 { //
+        if color > 0 {
             var newStartToken = newBlockRange.startToken
             var newEndToken = newBlockRange.endToken
             for existing in existingArray {
@@ -27,11 +27,10 @@ class HighlightManager {
         } else {
             for existing in existingArray {
                 let shouldSplit: Bool = existing.startToken < newBlockRange.startToken && existing.endToken > newBlockRange.endToken
+                var updatedExisting = existing
                 if shouldSplit { // Ricuco l'end e creo uno nuovo
-                    BlockRangeManager.updateBlockRange(existing: Existing(userMarkId: existing.userMarkId,
-                                                                          startToken: existing.startToken,
-                                                                          endToken: newBlockRange.startToken - 1,
-                                                                          colorIndex: existing.colorIndex))
+                    updatedExisting.endToken = newBlockRange.startToken - 1
+                    BlockRangeManager.updateBlockRange(existing: updatedExisting)
                     let markId = UserMarkManager.addUserMark(color: existing.colorIndex, locationId: locationId)
                     BlockRangeManager.addBlockRange(pub: pub,
                                                     identifier: newBlockRange.identifier,
@@ -40,15 +39,11 @@ class HighlightManager {
                                                     markId: markId)
                 } else {
                     if newBlockRange.startToken <= existing.startToken && newBlockRange.endToken >= existing.startToken && newBlockRange.endToken < existing.endToken { // Aumento lo start
-                        BlockRangeManager.updateBlockRange(existing: Existing(userMarkId: existing.userMarkId,
-                                                                              startToken: newBlockRange.endToken + 1,
-                                                                              endToken: existing.endToken,
-                                                                              colorIndex: existing.colorIndex))
+                        updatedExisting.startToken = newBlockRange.endToken + 1
+                        BlockRangeManager.updateBlockRange(existing: updatedExisting)
                     } else if newBlockRange.endToken >= existing.endToken && newBlockRange.startToken <= existing.endToken  && newBlockRange.startToken > existing.startToken { // Riduco l'end
-                        BlockRangeManager.updateBlockRange(existing: Existing(userMarkId: existing.userMarkId,
-                                                                              startToken: existing.startToken,
-                                                                              endToken: newBlockRange.startToken - 1,
-                                                                              colorIndex: existing.colorIndex))
+                        updatedExisting.endToken = newBlockRange.startToken - 1
+                        BlockRangeManager.updateBlockRange(existing: updatedExisting)
                     } else if existing.startToken >= newBlockRange.startToken && existing.endToken <= newBlockRange.endToken { // Lo elimino?
                         BlockRangeManager.removeBlockRange(userMarkId: existing.userMarkId)
                             UserMarkManager.removeUserMark(userMarkId: existing.userMarkId)
