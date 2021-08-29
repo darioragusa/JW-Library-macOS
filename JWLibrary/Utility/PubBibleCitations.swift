@@ -59,12 +59,7 @@ class PubBibleCitations {
                         let book = Int(sqlite3_column_int(statement, 0))
                         let chapter = Int(sqlite3_column_int(statement, 1))
                         let first = Int(sqlite3_column_int(statement, 2))
-                        var range = Array((citationRange.lowerBound - first)...(citationRange.upperBound - first))
-                        if range.count == 1 || range[0] == 0 {
-                            for index in 0..<range.count {
-                                range[index] += 1 // IDK ma altrimenti non funge
-                            }
-                        }
+                        let range = Array((citationRange.lowerBound - first + 1)...(citationRange.upperBound - first + 1))
                         bibleVerses = BibleVerses(bookNumber: book, chapterNumber: chapter, versesIds: range)
                     }
                     sqlite3_finalize(statement)
