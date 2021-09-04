@@ -141,8 +141,8 @@ public struct WebBrowserArticleView: NSViewRepresentable {
                     if FileManager().fileExists(atPath: bibledbPath.path) {
                         if let bibleVerses = PubBibleCitations.getBibleVerse(pub: pub,
                                                                              documentNumber: document?.ID ?? 0,
-                                                                               paragraphOrdinal: dict["parOrdinal"]!,
-                                                                               verseIndex: dict["elementNumber"]!) as BibleVerses? {
+                                                                             paragraphOrdinal: dict["parOrdinal"]!,
+                                                                             verseIndex: dict["elementNumber"]!) as BibleVerses? {
                             citation?(bibleVerses)
                         }
                     }

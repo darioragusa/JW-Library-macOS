@@ -27,7 +27,6 @@ struct ArticleView: View {
     @State var filePath: String
     @State var imgToShow: NSImage?
     @State var citation: ((BibleVerses) -> Void)?
-    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         ZStack {

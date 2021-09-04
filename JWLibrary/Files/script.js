@@ -54,11 +54,11 @@ function generateSelectable() {
 	}
 	for (let index = 0; index < splittedBody.length; index++) {
 		var newContent = splittedBody[index];
-		noPrev = newBody.endsWith('<sup>') || newBody.endsWith('class="cl vx vp"><strong>') || newBody.endsWith('class="vl vx vp">');
+		noPrev = newBody.endsWith('<sup>') || newBody.endsWith('class="cl vx vp"><strong>') || newBody.endsWith('class="vl vx vp">')  || newBody.endsWith('class="cl vx vp"> <strong>');
 		if ((index % 2 == 0) && ((newContent.trim().length > 1) || newContent.trim() == ';' /* Per adesso so solo di questo */) && !noPrev) {
-			newContent = newContent.replace(/[\b\wàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ’:-]*[^:\-.,;!?“”()\s]+/g, '<selectable class="word">$&</selectable>');
-			newContent = newContent.replace(/[:|\-](?=\s)/g, '<selectable class="punctuation">$&</selectable>');
-			newContent = newContent.replace(/[.|,|;|!|?|“|”|(|)]/g, '<selectable class="punctuation">$&</selectable>');
+			newContent = newContent.replace(/[\b\wàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ’:-]*[^:\-.,;!?“”()‘’\s]+/g, '<selectable class="word">$&</selectable>');
+			newContent = newContent.replace(/[:|\-|’](?=[\s|.|,])/g, '<selectable class="punctuation">$&</selectable>');
+			newContent = newContent.replace(/[.|,|;|!|?|“|”|(|)|‘]/g, '<selectable class="punctuation">$&</selectable>');
 		}
 		newBody += newContent + (index % 2 == 0 ? "<" : ">");
 	}
@@ -116,8 +116,14 @@ function addHighlight(color, isBible) {
 	window.getSelection().anchorNode.parentElement.classList.add('selectionStart');
 	window.getSelection().focusNode.parentElement.classList.add('selectionEnd');
 	var started = false;
+	var lastPar = 0;
+	var lastParN = 0;
 	for (var i = 0; i < paragraphs.length; i++) { // Controllo tutti i paragrafi
 		var paragraph = paragraphs[i];
+		var par = isBible ? Number(paragraph.id.split('-')[2]) : Number(paragraph.getAttribute('data-pid'));
+		if (par != lastPar) {
+			lastParN = 0;
+		}
 		console.log(paragraph);
 		var selectables = paragraph.getElementsByTagName("selectable");
 		var startIndex = -1;
@@ -127,13 +133,14 @@ function addHighlight(color, isBible) {
 		}
 		for (var j = 0; j < selectables.length; j++) { // Controllo tutti i selectables
 			var selectable = selectables[j];
+			var realJ = lastPar == par ? j + lastParN : j;
 			if (selectable.classList.contains('selectionStart')) {
-				startIndex = j;
+				startIndex = realJ;
 				started = true;
 				console.log(selectable.innerText);
 			}
 			if (selectable.classList.contains('selectionEnd')) {
-				endIndex = j;
+				endIndex = realJ;
 				started = false;
 				console.log(selectable.innerText);
 			}
@@ -143,7 +150,6 @@ function addHighlight(color, isBible) {
 		}
 		console.log(startIndex, endIndex);
 		if (endIndex > -1 && startIndex > -1) {
-			var par = isBible ? i + 1 : Number(paragraph.getAttribute('data-pid'));
 			window.webkit.messageHandlers.toggleMessageHandler.postMessage({
 				"mode": 0,
 				"paragraph": par,
@@ -152,6 +158,8 @@ function addHighlight(color, isBible) {
 				"color": color,
 			});
 		}
+		lastPar = par;
+		lastParN += selectables.length;
 	}
 	window.getSelection().empty();
 	cleanSelection();
@@ -171,16 +179,22 @@ function restoreHighlight(identifier, startToken, endToken, color, isBible) {
 		})
 	}
 	console.log(startToken, endToken)
+	var lastPar = 0;
+	var lastParN = 0;
 	for (var i = 0; i < paragraphs.length; i++) { // Controllo tutti i paragrafi
 		var paragraph = paragraphs[i];
-		var par = isBible ? i + 1 : Number(paragraph.getAttribute('data-pid'));
+		var par = isBible ? Number(paragraph.id.split('-')[2]) : Number(paragraph.getAttribute('data-pid'));
+		if (par != lastPar) {
+			lastParN = 0;
+		}
 		if (par != identifier) { continue; }
 		console.log(paragraph);
 		var selectables = paragraph.getElementsByTagName("selectable");
 		var highlightning = false;
 		for (let j = 0; j < selectables.length; j++) {
 			selectable = selectables[j];
-			if (j == startToken) {
+			var realJ = lastPar == par ? j + lastParN : j;
+			if (realJ == startToken) {
 				highlightning = true;
 			}
 			if (highlightning) {
@@ -190,7 +204,7 @@ function restoreHighlight(identifier, startToken, endToken, color, isBible) {
 				selectable.parentNode.insertBefore(highlighting, selectable);
 				highlighting.appendChild(selectable);
 			}
-			if (j == endToken) {
+			if (realJ == endToken) {
 				highlightning = false;
 			}
 		}
@@ -199,6 +213,8 @@ function restoreHighlight(identifier, startToken, endToken, color, isBible) {
 		paragraphContent = paragraphContent.replaceAll('</highlighting> <highlighting class="highlightingcolor' + color + '">', ' ');
 		paragraphContent = paragraphContent.replaceAll('</highlighting><highlighting class="highlightingcolor' + color + '">', '');
 		paragraph.innerHTML = paragraphContent;
+		lastPar = par;
+		lastParN += selectables.length;
 	}
 	makeSelectable();
 }
