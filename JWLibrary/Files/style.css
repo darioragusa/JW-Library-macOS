@@ -2,6 +2,9 @@ body {
     font-family: -apple-system;
     padding: 4px;
 }
+* {
+    box-sizing: border-box;
+}
 :root {
   color-scheme: light dark;
 }
@@ -61,6 +64,42 @@ p.sb {
 sup {
     top: -.5em;
 }
+table {
+    border-collapse: collapse;
+    border-color: inherit;
+    text-indent: 0;
+    margin-bottom: 1.5em;
+    font-size: .8298755187em;
+    border-spacing: 0;
+    empty-cells: show;
+    margin: 0;
+    padding: 0;
+}
+table td {
+    min-width: 75px;
+    padding: 8px;
+    vertical-align: top;
+}
+th {
+    text-align: left;
+    min-width: 75px;
+    padding: 8px;
+    vertical-align: bottom;
+}
+tr.emphasized th {
+    background-color: #757575;
+    color: #fff;
+}
+tr.shaded td {
+    background-color: #f1f1f1;
+    color: #292929;
+}
+.blockTeach, .boxSupplement {
+    background-color: #f1f1f1;
+    color: #292929;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
 .blockTeach.rule, .boxSupplement.rule, .chart.rule, .closingContent.rule, .diagram.rule, .mapElement.rule {
     border-top-style: solid;
     border-right-style: solid;
@@ -88,6 +127,11 @@ sup {
     background-color: #757575;
     color: #fff;
 }
+.boxSubTtl.rule, .boxTtl.rule {
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #a7a7a7;
+}
 .boxSubTtl h2, .boxSubTtl h3, .boxSubTtl h4, .boxSubTtl h5, .boxSubTtl h6, .boxTtl h2, .boxTtl h3, .boxTtl h4, .boxTtl h5, .boxTtl h6 {
     margin: 0;
 }
@@ -105,6 +149,10 @@ sup {
     border-top: 1px solid #9e9c9b;
     border-bottom: none;
     padding: 0;
+}
+.pageNum {
+    text-align: left;
+    float: right;
 }
 .sn {
     text-indent: 0;
