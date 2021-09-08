@@ -111,6 +111,15 @@ tr.shaded td {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
+.blockTxt, .bodyTxtAlt.rule, .stdCaption, .stdPullQuote, blockquote.rule {
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #a7a7a7;
+    color: #626262;
+    font-size: 1em;
+    clear: both;
+}
 .boxContent {
     padding-top: 16px;
     padding-bottom: 16px;
@@ -141,6 +150,10 @@ tr.shaded td {
 .dir-ltr ol, .dir-ltr ul, .dir-ltr ol, .dir-ltr ul {
     padding-left: 1.5em;
     padding-right: 0;
+}
+.flLeft:not(img), .flRight:not(img), .floatEast:not(img), .floatWest:not(img) {
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 .gen-footnote-container, .groupEndnote, .groupFootnote, .relatedContent {
     display: inherit;
