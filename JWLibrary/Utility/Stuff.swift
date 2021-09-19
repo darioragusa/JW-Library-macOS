@@ -13,7 +13,7 @@ class Stuff {
         var clearName = name.replacingOccurrences(of: "Primo", with: "1")
         clearName = clearName.replacingOccurrences(of: "Prima", with: "1")
         clearName = clearName.replacingOccurrences(of: "Secondo", with: "2")
-        clearName = clearName.replacingOccurrences(of: "Seconda", with: "1")
+        clearName = clearName.replacingOccurrences(of: "Seconda", with: "2")
         clearName = clearName.replacingOccurrences(of: "Terza", with: "3")
         clearName = clearName.replacingOccurrences(of: "libro di ", with: "")
         clearName = clearName.replacingOccurrences(of: "libro dei ", with: "")

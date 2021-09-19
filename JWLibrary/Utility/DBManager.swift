@@ -17,7 +17,7 @@ class DBManager {
             let query = """
                         SELECT BibleBook.BibleBookId, BibleBook.BookDisplayTitle, MAX(BibleChapter.ChapterNumber)
                         FROM BibleBook
-                        JOIN BibleChapter ON BibleBook.BibleBookId =  BibleChapter.BookNumber
+                        JOIN BibleChapter ON BibleBook.BibleBookId = BibleChapter.BookNumber
                         GROUP BY BibleBook.BibleBookId;
                         """
             var statement: OpaquePointer?
