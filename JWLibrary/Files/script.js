@@ -55,7 +55,7 @@ function generateSelectable() {
 	for (let index = 0; index < splittedBody.length; index++) {
 		var newContent = splittedBody[index];
 		noPrev = newBody.endsWith('<sup>') || newBody.endsWith('class="cl vx vp"><strong>') || newBody.endsWith('class="vl vx vp">')  || newBody.endsWith('class="cl vx vp"> <strong>');
-		if ((index % 2 == 0) && ((newContent.trim().length > 1) || newContent.trim() == ';' /* Per adesso so solo di questo */) && !noPrev) {
+		if ((index % 2 == 0) && ((newContent.trim().length > 1) || newContent.trim() == ';' || newContent.trim() == '.' /* Per adesso so solo di questi */) && !noPrev) {
 			newContent = newContent.replace(/[\b\wàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ’:-]*[^:\-.,;!?“”()‘’\s]+/g, '<selectable class="word">$&</selectable>');
 			newContent = newContent.replace(/[:|\-|’](?=[\s|.|,])/g, '<selectable class="punctuation">$&</selectable>');
 			newContent = newContent.replace(/[.|,|;|!|?|“|”|(|)|‘]/g, '<selectable class="punctuation">$&</selectable>');
