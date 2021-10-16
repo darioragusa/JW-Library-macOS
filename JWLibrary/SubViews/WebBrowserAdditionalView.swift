@@ -28,8 +28,8 @@ public struct WebBrowserAdditionalView: NSViewRepresentable {
         unload()
         DispatchQueue.main.async { [self] in
             self.citation = { bibleVerses in
-                load(bibleVerses: bibleVerses)
                 context.coordinator.citation = bibleVerses
+                load(bibleVerses: bibleVerses)
             }
         }
     }
@@ -85,8 +85,11 @@ public struct WebBrowserAdditionalView: NSViewRepresentable {
         public func webView(_ webView: WKWebView, didFinish: WKNavigation!) {
             if citation.bookNumber > 0 {
                 let code = """
+                    let sw = document.querySelectorAll('p.sw').length;
+                    let min = \(citation.versesIds.min() ?? 0) - sw;
+                    let max = \(citation.versesIds.max() ?? 0) - sw;
                     let verses = []
-                    for (var i = \(citation.versesIds.min() ?? 0); i <= \(citation.versesIds.max() ?? 0); i++) {
+                    for (var i = min; i <= max; i++) {
                         let verse = document.querySelectorAll('[id^="v\(citation.bookNumber)-\(citation.chapterNumber)-' + i + '-"]');
                         for (var j = 0; j < verse.length; j++) {
                             verses.push(verse[j]);

@@ -133,10 +133,12 @@ public struct WebBrowserArticleView: NSViewRepresentable {
                                                      documentID: document?.documentId ?? 0)
                     restoreHighlight()
                 case 1:
+                    print("Opening img \(dict["imgIndex"] ?? -1)...")
                     if let image = NSImage(data: images[dict["imgIndex"]!] as Data) {
                         parent.imgToShow = image
                     }
                 case 2:
+                    print("Opening bible verse...")
                     let bibledbPath = FileManager.getDocumentsDirectory().appendingPathComponent("nwt_I/contents/nwt_I.db")
                     if FileManager().fileExists(atPath: bibledbPath.path) {
                         if let bibleVerses = PubBibleCitations.getBibleVerse(pub: pub,

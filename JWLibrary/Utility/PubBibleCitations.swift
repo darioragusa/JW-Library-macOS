@@ -69,7 +69,6 @@ class PubBibleCitations {
             }
             sqlite3_close(db)
             db = nil
-
         }
         return bibleVerses
     }
