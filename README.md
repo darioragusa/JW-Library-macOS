@@ -12,4 +12,5 @@ Al momento è possibile:
 Si posso anche importare ed esportare backup compatibili con JW Library anche se considerando che è una beta non ci conterei più di tanto e farei un backup dei backup.
 
 ~~Altre funzioni arriveranno in futuro, forse...~~
+
 È uscita l'app ufficiale sull'App Store, usate quella
